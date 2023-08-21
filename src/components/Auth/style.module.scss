@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 145px);
+  width: 100%;
+}
+
+.authWrapper {
+  border-radius: 16px;
+  //border: 1px solid #37BD80;
+  background: #F1F1F1;
+  height: auto;
+  padding: 30px 65px;
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
