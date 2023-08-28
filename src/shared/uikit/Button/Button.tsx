@@ -8,12 +8,14 @@ interface IProps {
     textColor?: string | null,
     background?: string | null,
     width?: number | null,
+    isActive?: boolean,
+    value?: string,
 }
 
-const Button: React.FC<IProps> = ({ textColor, background, text, onClick, width }) => {
+const Button: React.FC<IProps> = ({ textColor, background, text, onClick, width, isActive = true}) => {
     const {classes} = useButtonStyles({ textColor, background, width })
     return (
-        <button onClick={onClick} className={classes.wrapper}>
+        <button onClick={isActive ? onClick : () => null} className={isActive ? classes.wrapper : classes.wrapperInactive}>
             <p className={classes.text}>{ text }</p>
         </button>
     );

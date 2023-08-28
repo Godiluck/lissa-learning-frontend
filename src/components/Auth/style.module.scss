@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 145px);
+  min-height: calc(100vh - 145px);
   width: 100%;
 }
 
@@ -22,4 +22,17 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.changeOption {
+  color: #534545;
+  font-size: 18px;
+  cursor: default;
+  .changeOptionBtn {
+    cursor: pointer;
+  }
+  .changeOptionBtn:hover {
+    text-decoration: underline #37BD80;
+    color: #37BD80;
+  }
 }

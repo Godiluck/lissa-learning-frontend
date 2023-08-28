@@ -3,6 +3,7 @@ import s from './style.module.scss'
 import {Logo} from "../../svgs/Logo";
 import {LogoText} from "../../svgs/LogoText";
 import {Link} from "react-router-dom";
+import {useAppSelector} from "../../hooks/redux";
 
 interface navNode {
     name: string,
@@ -10,11 +11,14 @@ interface navNode {
 }
 
 export const Header = () => {
+    const {id} = useAppSelector((state) => state.userReducer)
     const navNodes: navNode[] = [
         {name: "Выпускники", pathTo: "/graduates"},
         {name: "Блог", pathTo: "/blog"},
         {name: "О нас", pathTo: "/about"},
-        {name: "Профиль", pathTo: "/account/profile"},
+        id === 0 ?
+            {name: "Вход", pathTo: "/auth"} :
+            {name: "Профиль", pathTo: "lk/UUID/profile"},
     ]
 
     return (
@@ -27,7 +31,7 @@ export const Header = () => {
                 <ul className={s.nav}>
                     {navNodes.map((node: navNode) => (
                         <li key={node.name} className={s.navItem}>
-                            <Link className={s.navItemLink} to={node.pathTo}>{ node.name }</Link>
+                            <Link className={s.navItemLink} to={node.pathTo}>{node.name}</Link>
                         </li>
                     ))}
                 </ul>

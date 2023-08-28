@@ -1,13 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-
-interface UserState {
-    email: string,
-    externalId: string,
-    username: string,
-    id: number,
-    token: string,
-    roles: string[],
-}
+import {UserState} from "../../models/account";
 
 const initialState: UserState = {
     email: '',

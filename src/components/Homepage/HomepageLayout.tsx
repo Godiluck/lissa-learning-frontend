@@ -8,7 +8,7 @@ const HomepageLayout = () => {
             <p>Ето хоумпейдж (сам делал)</p>
              <p>Все интересное тут:</p>
             <Link to={'/auth'}>Вход</Link>
-            <Link to={'/account/profile'}>Профиль</Link>
+            <Link to={'/lk/UUID/profile'}>Профиль</Link>
         </div>
     );
 };

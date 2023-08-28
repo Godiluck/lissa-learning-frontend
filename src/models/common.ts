@@ -5,3 +5,8 @@ export enum snackbarTypes {
     warning = "warning",
     info = "info",
 }
+
+export enum direction {
+    ASC = "ASC",
+    DESC = "DESC",
+}

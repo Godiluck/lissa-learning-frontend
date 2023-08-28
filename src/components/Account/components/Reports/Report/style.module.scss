@@ -1,0 +1,51 @@
+.wrapper {
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.reportTitle {
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.header {
+  border-bottom: 1px solid #F1F1F1;
+  padding: 12px;
+  display: flex;
+  justify-content: space-around;
+  p {
+    text-transform: uppercase;
+    color: #534545;
+    font-size: 27px;
+    font-weight: 400;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px;
+}
+
+.bodyGap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  padding: 12px 0;
+  align-items: flex-start;
+  border-bottom: 3px dashed #F1F1F1;
+  p {
+    text-transform: uppercase;
+    color: #534545;
+    font-size: 27px;
+    font-weight: 400;
+  }
+  p:last-child {
+    padding-left: 12px;
+    text-transform: none;
+  }
+}
+
+.bodyGap:last-child {
+  border-bottom: none;
+}

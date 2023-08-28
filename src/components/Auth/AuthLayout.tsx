@@ -4,23 +4,39 @@ import InputForm from "../../shared/uikit/InputForm/InputForm";
 import Button from "../../shared/uikit/Button/Button";
 import {useSnackbar} from "notistack";
 import {snackbarTypes} from "../../models/common";
-import axios from "axios";
+import axios, {AxiosError} from "axios";
 import {useAppDispatch} from "../../hooks/redux";
 import {getUserData} from "../../store/reducers/UserSlice";
 import {useNavigate} from "react-router-dom";
+import {$AxiosUserService} from "../../utils/interceptor";
 
 interface IFields {
     login: string,
     password: string,
 }
 
+interface IFieldsReg {
+    username: string,
+    email: string,
+    password: string,
+    rePassword: string,
+    telegramNickname: string,
+}
+
 const AuthLayout = () => {
     const navigate = useNavigate()
-    const { enqueueSnackbar } = useSnackbar()
+    const {enqueueSnackbar} = useSnackbar()
     const dispatch = useAppDispatch()
     const [fields, setFields] = useState<IFields>({
         login: '',
         password: '',
+    })
+    const [fieldsReg, setFieldsReg] = useState<IFieldsReg>({
+        username: '',
+        email: '',
+        password: '',
+        rePassword: '',
+        telegramNickname: '',
     })
     const [isReg, setIsReg] = useState<boolean>(false)
 
@@ -28,8 +44,12 @@ const AuthLayout = () => {
         setFields(prev => ({...prev, [field]: val}))
     }
 
+    const onChangeReg = (field: string, val: string) => {
+        setFieldsReg(prev => ({...prev, [field]: val}))
+    }
+
     const showSnackbar = (msg: string, variant: snackbarTypes) => {
-         enqueueSnackbar(msg, {
+        enqueueSnackbar(msg, {
             variant: variant,
             autoHideDuration: 2500,
         })
@@ -37,32 +57,86 @@ const AuthLayout = () => {
 
     const isValid = () => !!fields.login && !!fields.password
 
+    const isValidReg = () => !!fieldsReg.username && fieldsReg.rePassword === fieldsReg.password && fieldsReg.password.length >= 6 && !!fieldsReg.email && !!fieldsReg.telegramNickname
+
+    const toggleReg = () => setIsReg(!isReg)
+
     const logIn = async () => {
-        if (isValid()) {
-            const response = await axios.post(`${process.env.REACT_APP_USER_SERVICE_ENDPOINT}api/auth/signin`, {
+        try {
+            const response = await $AxiosUserService.post(`api/auth/signin`, {
                 username: fields.login,
                 password: fields.password
             })
             if (response.status === 200) {
+                // TODO
+                // localStorage.setItem('externalId', response.data.externalId)
                 dispatch(getUserData(response.data))
-                navigate('/')
+                navigate('/lk/UUID/profile')
                 return
+            }
+        } catch (e) {
+            if (axios.isAxiosError(e)) {
+                return showSnackbar(e.response?.data.message, snackbarTypes.error)
             } else {
-                return showSnackbar(response.data.message, snackbarTypes.error)
+                return console.log(e)
             }
         }
-        return showSnackbar("Заполните все поля", snackbarTypes.error)
+    }
+
+    const register = async () => {
+        try {
+            const response = await $AxiosUserService.post(`api/auth/signup`, {
+                username: fieldsReg.username,
+                email: fieldsReg.email,
+                password: fieldsReg.password,
+                telegramNickname: fieldsReg.telegramNickname,
+            })
+            if (response.status === 200) {
+                setFields({ login: fieldsReg.username, password: fieldsReg.password })
+                return logIn()
+            }
+        } catch (e) {
+            if (axios.isAxiosError(e)) {
+                return showSnackbar(e.response?.data.message, snackbarTypes.error)
+            } else {
+                return console.log(e)
+            }
+        }
     }
 
     return (
         <div className={s.wrapper}>
-            <div className={s.authWrapper}>
-                <InputForm type="text" field="login" title="Логин" callback={onChange}/>
-                <InputForm type="password" field="password" title="Пароль" callback={onChange}/>
-                <div className={s.buttonWrapper}>
-                    <Button onClick={() => logIn()} text="Вход" />
+            {!isReg ? (
+                <div className={s.authWrapper}>
+                    <InputForm type="text" value={fields.login} autocomplete="username" field="login" title="Логин"
+                               callback={onChange}/>
+                    <InputForm field="password" value={fields.password} autocomplete="password" title="Пароль" isEye
+                               callback={onChange}/>
+                    <div className={s.buttonWrapper}>
+                        <Button isActive={isValid()} onClick={logIn} text="Вход"/>
+                    </div>
+                    <p className={s.changeOption}>Впервые? <span onClick={toggleReg}
+                                                                 className={s.changeOptionBtn}>Зарегистрироваться!</span>
+                    </p>
                 </div>
-            </div>
+            ) : (
+                <div className={s.authWrapper}>
+                    <InputForm type="text" value={fieldsReg.username} field="username" title="Логин"
+                               callback={onChangeReg}/>
+                    <InputForm isEye field="password" value={fieldsReg.password} title="Пароль" callback={onChangeReg}/>
+                    <InputForm isEye field="rePassword" value={fieldsReg.rePassword} title="Повторите пароль"
+                               callback={onChangeReg}/>
+                    <InputForm type="email" field="email" value={fieldsReg.email} title="Email" callback={onChangeReg}/>
+                    <InputForm type="text" field="telegramNickname" value={fieldsReg.telegramNickname}
+                               title="Telegram Nickname" callback={onChangeReg}/>
+                    <div className={s.buttonWrapper}>
+                        <Button isActive={isValidReg()} onClick={register} text="Регистрация"/>
+                    </div>
+                    <p className={s.changeOption}>Уже зарегистрированы? <span onClick={toggleReg}
+                                                                              className={s.changeOptionBtn}>Войти!</span>
+                    </p>
+                </div>
+            )}
         </div>
     );
 };
