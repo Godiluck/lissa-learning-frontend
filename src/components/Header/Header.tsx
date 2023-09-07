@@ -11,14 +11,14 @@ interface navNode {
 }
 
 export const Header = () => {
-    const {id} = useAppSelector((state) => state.userReducer)
+    const {externalId} = useAppSelector((state) => state.userReducer)
     const navNodes: navNode[] = [
         {name: "Выпускники", pathTo: "/graduates"},
         {name: "Блог", pathTo: "/blog"},
         {name: "О нас", pathTo: "/about"},
-        id === 0 ?
+        externalId === '' ?
             {name: "Вход", pathTo: "/auth"} :
-            {name: "Профиль", pathTo: "lk/UUID/profile"},
+            {name: "Профиль", pathTo: `lk/${externalId}/profile`},
     ]
 
     return (

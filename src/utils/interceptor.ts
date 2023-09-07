@@ -1,13 +1,19 @@
-import axios, {AxiosInstance} from "axios";
+import axios from "axios";
 
+const apiAuthService = process.env.REACT_APP_AUTH_SERVICE_ENDPOINT
 const apiUserService = process.env.REACT_APP_USER_SERVICE_ENDPOINT
-const apiReports = process.env.REACT_APP_REPORTS_ENDPOINT
 
 const createAxios = (baseUrl) => {
     const newAxios = axios.create({
         baseURL: baseUrl
     })
-    newAxios.interceptors.request.use((config: any) => config);
+    newAxios.interceptors.request.use((config: any) => {
+        const { token } = localStorage;
+        if (apiUserService === baseUrl) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config
+    });
 
     newAxios.interceptors.response.use(
         (response) => {
@@ -17,7 +23,7 @@ const createAxios = (baseUrl) => {
             if (error.response.status === 401) {
                 const originalConfig = error.config;
                 originalConfig.sent = true;
-                return newAxios(originalConfig);
+                // return newAxios(originalConfig);
             }
 
             return Promise.reject(error);
@@ -26,5 +32,5 @@ const createAxios = (baseUrl) => {
     return newAxios;
 }
 
-export const $AxiosReports = createAxios(apiReports)
 export const $AxiosUserService = createAxios(apiUserService)
+export const $AxiosAuthService = createAxios(apiAuthService)

@@ -17,9 +17,18 @@
 
 .fieldsWrapper {
   width: 100%;
-  justify-content: space-around;
+  row-gap: 20px;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 16px;
   background: #F1F1F1;
   padding: 24px 32px;
+}
+
+.fieldsRow {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  row-gap: 20px;
 }

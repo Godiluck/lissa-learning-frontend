@@ -14,7 +14,7 @@ export const useTextAreaFormStyles = makeStyles<IProps>()((theme, props) => {
             alignItems: "center",
         },
         title: {
-            fontSize: "27px",
+            fontSize: "23px",
             fontWeight: 400,
             color: "#534545",
             margin: 0,
@@ -24,7 +24,7 @@ export const useTextAreaFormStyles = makeStyles<IProps>()((theme, props) => {
         textArea: {
             background: props.background,
             borderRadius: "16px",
-            fontSize: "27px",
+            fontSize: "23px",
             letterSpacing: "1.5px",
             minHeight: props.minHeight,
             height: "auto",

@@ -4,9 +4,37 @@ export interface UserState {
     email: string,
     externalId: string,
     username: string,
+    birthday: string | null,
+    isBlocked: boolean,
+    createAt: string,
+    modifyAt: string,
+    trainingStartAt: string,
+    telegramNickname: string,
+    lastReportDate: string,
+    stage: string,
     id: number,
     token: string,
     roles: string[],
+}
+
+export interface ILoginRes {
+    email: string;
+    externalId: string;
+    username: string;
+    id: number;
+    token: string;
+    roles: string[];
+}
+
+export interface IUserDataRes {
+    birthday: string | null,
+    isBlocked: boolean,
+    createAt: string,
+    modifyAt: string,
+    trainingStartAt: string,
+    telegramNickname: string,
+    lastReportDate: string,
+    stage: string,
 }
 
 export interface IReportFields {

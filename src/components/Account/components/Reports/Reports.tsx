@@ -51,7 +51,7 @@ const Reports = () => {
             return showSnackbar("Корректно заполните дату!", snackbarTypes.warning)
         }
         if (fields.studyingTime === '') {
-            return showSnackbar("Поле затраченное время не может быть пустым", snackbarTypes.warning)
+            return showSnackbar("Поле затраченное время не должно быть пустым!", snackbarTypes.warning)
         }
         if (fields.workDone === '') {
             return showSnackbar("Напишите что вы сделали!", snackbarTypes.warning)

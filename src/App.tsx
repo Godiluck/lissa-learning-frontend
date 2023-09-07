@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "./App.scss"
 import {Header} from "./components/Header/Header";
 import {Footer} from "./components/Footer/Footer";
@@ -11,12 +11,16 @@ import Profile from "./components/Account/components/Profile/Profile";
 import Reports from "./components/Account/components/Reports/Reports";
 import Review from "./components/Account/components/Review/Review";
 import Analytics from "./components/Account/components/Analytics/Analytics";
+import {useAppSelector} from "./hooks/redux";
+import Offers from "./components/Account/components/Offers/Offers";
 
 const App = () => {
+    const {externalId} = useAppSelector((state) => state.userReducer)
 
-    //  TODO
     // useEffect(() => {
-    //     console.log(localStorage.getItem('externalId'))
+    //     if (localStorage.getItem("token")) {
+    //
+    //     }
     // }, [])
 
     return (
@@ -35,17 +39,22 @@ const App = () => {
                         <Route path='/' element={<HomepageLayout/>}/>
                         <Route path='auth' element={<AuthLayout/>}/>
                         <Route path='lk' element={<AccountLayout/>}>
-                            <Route path='UUID/profile' element={<Profile/>}/>
-                            <Route path='UUID/analytics' element={<Analytics/>}/>
-                            <Route path='UUID/review' element={<Review/>}/>
-                            <Route path='UUID/reports' element={<Reports/>}/>
+                            {externalId && (
+                                <>
+                                    <Route path={`${externalId}/profile`} element={<Profile/>}/>
+                                    <Route path={`${externalId}/analytics`} element={<Analytics/>}/>
+                                    <Route path={`${externalId}/review`} element={<Review/>}/>
+                                    <Route path={`${externalId}/reports`} element={<Reports/>}/>
+                                    <Route path={`${externalId}/offers`} element={<Offers/>}/></>
+                            )}
                         </Route>
                     </Routes>
                     <Footer/>
                 </div>
             </SnackbarProvider>
         </BrowserRouter>
-    );
+    )
+        ;
 };
 
 export default App;

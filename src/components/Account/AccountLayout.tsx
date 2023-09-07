@@ -15,15 +15,17 @@ interface INavNode {
 }
 
 const AccountLayout = () => {
+    const {externalId} = useAppSelector((state) => state.userReducer)
     const {pathname} = useLocation()
     const navigate = useNavigate()
     const { token } = useAppSelector((state) => state.userReducer)
 
     const navNodesInitialState: INavNode[] = [
-        {name: "Профиль", pathTo: "/lk/UUID/profile", image: <ProfileNavIcon/>, isActive: false},
-        {name: "Аналитика", pathTo: "/lk/UUID/analytics", image: <AnalyticsNavIcon/>, isActive: false},
-        {name: "Отчеты", pathTo: "/lk/UUID/reports", image: <ReportsNavIcon/>, isActive: false},
-        {name: "Ревью", pathTo: "/lk/UUID/review", image: <ReviewNavIcon/>, isActive: false},
+        {name: "Профиль", pathTo: `/lk/${externalId}/profile`, image: <ProfileNavIcon/>, isActive: false},
+        {name: "Аналитика", pathTo: `/lk/${externalId}/analytics`, image: <AnalyticsNavIcon/>, isActive: false},
+        {name: "Отчеты", pathTo: `/lk/${externalId}/reports`, image: <ReportsNavIcon/>, isActive: false},
+        {name: "Ревью", pathTo: `/lk/${externalId}/review`, image: <ReviewNavIcon/>, isActive: false},
+        {name: "Офферы", pathTo: `/lk/${externalId}/offers`, image: <ReviewNavIcon/>, isActive: false},
     ]
 
     const isActive = (path) => path === pathname

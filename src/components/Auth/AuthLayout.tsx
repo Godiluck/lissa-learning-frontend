@@ -4,11 +4,12 @@ import InputForm from "../../shared/uikit/InputForm/InputForm";
 import Button from "../../shared/uikit/Button/Button";
 import {useSnackbar} from "notistack";
 import {snackbarTypes} from "../../models/common";
-import axios, {AxiosError} from "axios";
+import axios from "axios";
 import {useAppDispatch} from "../../hooks/redux";
-import {getUserData} from "../../store/reducers/UserSlice";
+import {getLoginData} from "../../store/reducers/UserSlice";
 import {useNavigate} from "react-router-dom";
-import {$AxiosUserService} from "../../utils/interceptor";
+import {$AxiosAuthService} from "../../utils/interceptor";
+import {fetchUserData} from "../../store/reducers/ActionCreators";
 
 interface IFields {
     login: string,
@@ -63,20 +64,21 @@ const AuthLayout = () => {
 
     const logIn = async () => {
         try {
-            const response = await $AxiosUserService.post(`api/auth/signin`, {
+            const response = await $AxiosAuthService.post(`api/auth/signin`, {
                 username: fields.login,
                 password: fields.password
             })
             if (response.status === 200) {
-                // TODO
-                // localStorage.setItem('externalId', response.data.externalId)
-                dispatch(getUserData(response.data))
-                navigate('/lk/UUID/profile')
+                localStorage.setItem('externalId', response.data.externalId)
+                localStorage.setItem('token', response.data.token)
+                await dispatch(getLoginData(response.data))
+                await dispatch(fetchUserData())
+                navigate(`/lk/${response.data.externalId}/profile`)
                 return
             }
         } catch (e) {
             if (axios.isAxiosError(e)) {
-                return showSnackbar(e.response?.data.message, snackbarTypes.error)
+                return showSnackbar("Произошла ошибка", snackbarTypes.error)
             } else {
                 return console.log(e)
             }
@@ -85,7 +87,7 @@ const AuthLayout = () => {
 
     const register = async () => {
         try {
-            const response = await $AxiosUserService.post(`api/auth/signup`, {
+            const response = await $AxiosAuthService.post(`api/auth/signup`, {
                 username: fieldsReg.username,
                 email: fieldsReg.email,
                 password: fieldsReg.password,

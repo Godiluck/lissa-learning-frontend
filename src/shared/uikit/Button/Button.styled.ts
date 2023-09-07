@@ -13,7 +13,6 @@ export const useButtonStyles = makeStyles<IProps>()((theme, props) => {
             height: "50px",
             cursor: "pointer",
             border: "none",
-            padding: "14px 8px",
             borderRadius: "16px",
             background: props.background ? props.background : "#37BD80"
         },
@@ -22,7 +21,6 @@ export const useButtonStyles = makeStyles<IProps>()((theme, props) => {
             width: props.width ? `${props.width}px` : "250px",
             height: "50px",
             border: "none",
-            padding: "14px 8px",
             borderRadius: "16px",
             background: props.background ? props.background : "#37BD80",
             opacity: .3

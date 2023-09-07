@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import userReducer from './reducers/UserSlice'
 import reportsReducer from './reducers/ReportsSlice'
+import offersReducer from './reducers/OffersSlice'
 
 const rootReducer = combineReducers({
     userReducer,
-    reportsReducer
+    reportsReducer,
+    offersReducer
 })
 
 export const store = configureStore({

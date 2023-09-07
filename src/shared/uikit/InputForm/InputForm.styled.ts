@@ -13,7 +13,7 @@ export const useInputFormStyles = makeStyles<IProps>()((theme, props) => {
             alignItems: "center",
         },
         title: {
-            fontSize: "27px",
+            fontSize: "23px",
             fontWeight: 400,
             color: "#534545",
             margin: 0,
@@ -21,12 +21,13 @@ export const useInputFormStyles = makeStyles<IProps>()((theme, props) => {
             textTransform: "uppercase",
         },
         inputWrapper: {
+            width: "100%",
             position: "relative",
         },
         input: {
             background: props.background,
             borderRadius: "16px",
-            fontSize: "27px",
+            fontSize: "23px",
             letterSpacing: "1.5px",
             height: "50px",
             outline: "none",
