@@ -2,12 +2,17 @@
   width: 100%;
   position: fixed;
   display: flex;
+  height: 100px;
   align-items: center;
   top: 0;
-  padding: 31px 49px 0 49px;
   left: 0;
-  background: white;
-  z-index: 1;
+  z-index: 1000;
+  border-radius: 0 0 10px 10px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  background: #171723;
+  justify-content: center;
 }
 
 .logoWrapper {
@@ -15,30 +20,119 @@
   display: flex;
   align-items: center;
   column-gap: 15px;
+  text-decoration: none;
 }
 
-.navWrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.logoWrapperText {
+  font-family: 'Nokora', sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  text-decoration: none;
+  &:first-child {
+    color: #00ECBE;
+    font-weight: 700;
+    letter-spacing: 22.5px;
+  }
+  &:last-child {
+    color: #E6E6E6;
+    font-weight: 400;
+    letter-spacing: 5.875px;
+  }
 }
 
-.nav {
+.headerBtns {
+  position: fixed;
+  top: 26px;
+  right: 21px;
   display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 30px;
+}
+
+.loginBtn {
+  cursor: pointer;
+  background: transparent;
+  border-width: 0 0 1px 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  height: fit-content;
+  font-weight: 400;
+  line-height: 20px;
+  transition: all .3s ease-out;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid #00ECBE;
+  }
+}
+
+.burgerMenu {
+  z-index: 999;
+  border-radius: 0 0 10px 10px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  position: fixed;
+  top: -400px;
   list-style: none;
-  justify-content: space-evenly;
-  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 12px;
+  padding: 20px 12px 0;
+  right: 0;
+  width: 300px;
+  transition: top 0.3s ease-in-out;
+  background: #171723;
+  height: 400px;
   li {
     a {
-      font-size: 20px;
-      font-weight: 400;
-      white-space: nowrap;
-      color: #534545;
+      font-size: 22px;
       text-transform: uppercase;
       text-decoration: none;
+      color: #fff;
+      display: block;
+      position: relative;
+      padding: 4px 0;
     }
-    a:hover {
-      color: #197664;
+    a::before{
+      content: "";
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: 0.5s transform ease;
+      transform: scale3d(0,1,1);
+      background: #00ECBE;
+      transform-origin: 100% 50%;
+    }
+    a:hover::before{
+      transform: scale3d(1,1,1);
+      transform-origin: 0 50%;
     }
   }
+}
+
+.open {
+  top: 70px;
+}
+
+.burgerMenu a::before{
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  transition: 0.5s transform ease;
+  transform: scale3d(0,1,1);
+  transform-origin: 0 50%;
+  display: inline-block;
+}
+.burgerMenu a:hover::before{
+  transform: scale3d(1,1,1);
 }

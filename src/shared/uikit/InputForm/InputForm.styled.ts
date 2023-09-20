@@ -1,7 +1,8 @@
 import {makeStyles} from "tss-react/mui";
 
 interface IProps {
-    background: string
+    background: string;
+    size: string;
 }
 
 export const useInputFormStyles = makeStyles<IProps>()((theme, props) => {
@@ -11,6 +12,7 @@ export const useInputFormStyles = makeStyles<IProps>()((theme, props) => {
             flexDirection: "column",
             rowGap: "12px",
             alignItems: "center",
+            width: props.size,
         },
         title: {
             fontSize: "23px",
@@ -33,9 +35,10 @@ export const useInputFormStyles = makeStyles<IProps>()((theme, props) => {
             outline: "none",
             padding: "12px 20px",
             border: "none",
-            width: "calc(100% - 40px)",
+            width: "100%",
             textWrap: "nowrap",
             overflow: "hidden",
+            color: "#141419",
             textOverflow: "ellipsis",
         },
         eyeWrapper: {

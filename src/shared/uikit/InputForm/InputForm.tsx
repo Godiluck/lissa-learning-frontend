@@ -13,6 +13,7 @@ interface IProps {
     placeholder?: string,
     isEye?: boolean,
     autocomplete?: string | undefined,
+    size?: string,
 }
 
 const InputForm: React.FC<IProps> = ({
@@ -26,17 +27,19 @@ const InputForm: React.FC<IProps> = ({
                                          placeholder = '',
                                          isEye = false,
                                          autocomplete = undefined,
+                                         size = "initial",
                                      }) => {
 
-    const {classes} = useInputFormStyles({background})
+    const {classes} = useInputFormStyles({background, size})
 
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false)
 
     return (
         <div className={classes.wrapper}>
-            <p className={classes.title}>{title}:</p>
+            {title !== "" && (<p className={classes.title}>{title}:</p>)}
             <div className={classes.inputWrapper}>
-                <input autoComplete={autocomplete ? autocomplete : "false"} placeholder={placeholder} style={isDisabled ? {border: "1px solid black"} : {}} value={value}
+                <input autoComplete={autocomplete ? autocomplete : "false"} placeholder={placeholder}
+                       style={isDisabled ? {border: "1px solid black"} : {}} value={value}
                        disabled={isDisabled} type={isEye ? isEyeOpen ? 'text' : 'password' : type}
                        onChange={(e) => callback(field, e.target.value)}
                        className={classes.input}/>

@@ -1,3 +1,46 @@
 .wrapper {
+  width: 100vw;
+  background: #171723;
+  border-radius: 10px 10px 0 0;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 2px 0 0 0;
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+}
 
+.contactsBlock {
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.contactEmail {
+  margin: auto 0;
+  height: fit-content;
+  font-size: 16.054px;
+  font-weight: 600;
+  line-height: 20.067px;
+  transition: all .2s ease-out;
+  cursor: default;
+  &:hover {
+    color: #00ECBE;
+  }
+}
+
+.contactTg {
+  height: fit-content;
+  margin: auto 0;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  &:hover {
+    transform: scale(1.25);
+    svg {
+      path {
+        transition: all .2s ease-out;
+        fill: #FFFFFF;
+      }
+    }
+  }
 }

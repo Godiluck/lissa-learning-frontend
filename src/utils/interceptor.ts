@@ -2,6 +2,7 @@ import axios from "axios";
 
 const apiAuthService = process.env.REACT_APP_AUTH_SERVICE_ENDPOINT
 const apiUserService = process.env.REACT_APP_USER_SERVICE_ENDPOINT
+const apiAdminService = process.env.REACT_APP_ADMIN_SERVICE_ENDPOINT
 
 const createAxios = (baseUrl) => {
     const newAxios = axios.create({
@@ -34,3 +35,4 @@ const createAxios = (baseUrl) => {
 
 export const $AxiosUserService = createAxios(apiUserService)
 export const $AxiosAuthService = createAxios(apiAuthService)
+export const $AxiosAdminService = createAxios(apiAdminService)

@@ -1,21 +1,12 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  box-sizing: border-box;
+  color: #FFFFFF;
 }
 
 .wrapper {
+  background: #171723;
   display: flex;
   flex-direction: column;
-  margin-top: 145px;
-}
-
-.header {
-  background: blueviolet;
-}
-
-.body {
-  background: aquamarine;
-}
-
-.footer {
-  background: brown;
+  margin-top: 90px;
 }
