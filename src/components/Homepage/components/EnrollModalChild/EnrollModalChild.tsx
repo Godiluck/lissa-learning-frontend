@@ -52,9 +52,7 @@ const EnrollModalChild: React.FC<IProps> = ({ onClose }) => {
         }
     }
 
-    const isActive = !!fields.name && !!fields.mail && !!fields.phone && !!fields.telegram
-
-    console.log(!!fields.telegram)
+    const isActive = !!fields.name && (!!fields.mail || !!fields.phone || !!fields.telegram)
 
     return (
         <div className={s.wrapper}>

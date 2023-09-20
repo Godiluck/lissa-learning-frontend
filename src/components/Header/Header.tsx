@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import s from './style.module.scss'
 import Logo from "../../svgs/Logo";
 import {Link} from "react-router-dom";
@@ -27,19 +27,14 @@ export const Header = () => {
 
     const navRef = useRef(null)
 
-    useEffect(() => {
-        if (isLogin) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "initial"
-        }
-    }, [isLogin])
-
-    useClickOutside(isOpen, () => {isOpen && setTimeout(() => setIsOpen(false), 100)}, navRef)
+    useClickOutside(isOpen, () => {
+        isOpen && setTimeout(() => setIsOpen(false), 100)
+    }, navRef)
 
     return (
         <>
-            {isLogin && <Modal isModal={isLogin} child={<LoginModalChild onClose={() => setIsLogin(false)}/>} onClose={() => setIsLogin(false)}/>}
+            <Modal isModal={isLogin} child={<LoginModalChild onClose={() => setIsLogin(false)}/>}
+                   onClose={() => setIsLogin(false)}/>
             <div className={s.wrapper}>
                 <Link to='/' className={s.logoWrapper}>
                     <span className={s.logoWrapperText}>Lissa</span>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const PasswordEyeOpen = () => {
     return (
-        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none">
             <rect opacity="0.5" width="31" height="31" fill="url(#pattern0)"/>
             <defs>
                 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
