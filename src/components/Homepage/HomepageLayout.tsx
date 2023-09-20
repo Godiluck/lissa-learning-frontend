@@ -11,10 +11,10 @@ import WhatYouGetIcon4 from "../../svgs/WhatYouGetIcons/WhatYouGetIcon4";
 import WhatYouGetIcon3 from "../../svgs/WhatYouGetIcons/WhatYouGetIcon3";
 import WhatYouGetIcon2 from "../../svgs/WhatYouGetIcons/WhatYouGetIcon2";
 import FAQItem from "./components/FAQItem/FAQItem";
-import StudentIcon from "../../svgs/StudentIcon";
 import HomepageBottomBannerIcon from "../../svgs/HomepageBottomBannerIcon";
 import Modal from "../Modal/Modal";
 import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
+import StudentIcon from "../../svgs/StudentIcon";
 
 const HomepageLayout = () => {
     const [isEnroll, setIsEnroll] = useState<boolean>(false)
