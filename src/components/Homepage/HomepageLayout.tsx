@@ -29,7 +29,7 @@ const HomepageLayout = () => {
 
     return (
         <>
-            {isEnroll && <Modal child={<EnrollModalChild onClose={() => setIsEnroll(false)}/>} onClose={() => setIsEnroll(false)}/>}
+            <Modal isModal={isEnroll} child={<EnrollModalChild onClose={() => setIsEnroll(false)}/>} onClose={() => setIsEnroll(false)}/>
         <div className={s.wrapper}>
             <div className={s.topBanner}>
                 <div className={s.bannerInfo}>

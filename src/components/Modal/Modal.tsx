@@ -5,14 +5,15 @@ import useClickOutside from "../../hooks/useClickOutside";
 
 interface IProps {
     child: ReactNode;
-    onClose: () => void
+    onClose: () => void;
+    isModal: boolean;
 }
 
-const Modal: React.FC<IProps> = ({child, onClose}) => {
+const Modal: React.FC<IProps> = ({child, onClose, isModal}) => {
     const modalRef = useRef(null)
     useClickOutside(true, () => setTimeout(() => onClose(), 100), modalRef)
     return (
-        <div className={s.overlay}>
+        <div style={isModal ? {visibility: "visible", opacity: 1} : {}} className={s.overlay}>
             <div ref={modalRef} className={s.modal}>
                 <div className={s.modalLogo}><Logo size={132}/></div>
                 <div className={s.modalInner}>

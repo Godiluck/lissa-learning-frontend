@@ -19,7 +19,7 @@ const LoginModalChild: React.FC<IProps> = ({ onClose }) => {
     const {enqueueSnackbar} = useSnackbar()
     const dispatch = useAppDispatch()
     const [fields, setFields] = useState({
-        login: '123',
+        login: '',
         password: ''
     })
 
@@ -53,8 +53,6 @@ const LoginModalChild: React.FC<IProps> = ({ onClose }) => {
             }
         }
     }
-
-    console.log(fields)
 
     const onChange = (field: string, val: string) => {
         setFields(prev => ({...prev, [field]: val}))
