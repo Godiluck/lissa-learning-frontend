@@ -49,13 +49,29 @@
   margin: 0 auto;
 }
 
+.studentInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
 .studentInfo {
-  margin-bottom: 20px;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 30px;
   color: #FFFFFF;
+}
+
+.company {
+  color: #00ECBE;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+  line-height: 20px;
 }
 
 .reviewText {
@@ -66,7 +82,7 @@
   letter-spacing: 0.16px;
   color: #FFFFFF;
   text-align: start;
-  max-height: 400px;
+  max-height: 390px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;

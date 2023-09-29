@@ -344,6 +344,15 @@ a {
   }
 }
 
+.studentInfo {
+  border-color: #FFFFFF;
+  border-style: solid;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .studentIcon {
   height: 260px;
   width: 260px;
@@ -360,9 +369,24 @@ a {
   font-style: normal;
   text-align: center;
   font-weight: 600;
-  line-height: 50px;
-  border-color: #FFFFFF;
-  border-style: solid;
+  line-height: 20px;
+}
+
+.company {
+  color: #00ECBE;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+  line-height: 20px;
+}
+
+.studentInfoTablet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 30px;
 }
 
 .studentReviewTextBlock {

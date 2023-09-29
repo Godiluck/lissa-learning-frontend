@@ -316,19 +316,23 @@ const HomepageLayout = () => {
                             <div className={s.studentReview}>
                                 {(getStudentReviewsPos(index) && !isMobileMiddle) && (<div className={s.studentReviewInfo}>
                                     <div className={s.studentIcon}><img src={item.image} alt={item.name}/></div>
-                                    <p style={getStudentsStyles(index)}
-                                       className={s.studentName}>{item.name}, {item.age}</p>
+                                    <div className={s.studentInfo} style={getStudentsStyles(index)}>
+                                        <p className={s.studentName}>{item.name}, {item.age}</p>
+                                        <p className={s.company}>{item.company}</p>
+                                    </div>
                                 </div>)}
                                 <div className={s.studentReviewTextBlock}>
-                                    {isMobileMiddle && (<p style={{ border: "none", width: "100%", textAlign: "start", lineHeight: "40px" }} className={s.studentName}>{item.name}, {item.age}</p>)}
+                                    {isMobileMiddle && (<div className={s.studentInfoTablet}><p style={{ border: "none", width: "100%", textAlign: "start", lineHeight: "40px" }} className={s.studentName}>{item.name}, {item.age}</p><p className={s.company}>{item.company}</p></div>)}
                                     <p className={s.studentReviewText}>{item.review}</p>
                                     <button onClick={() => setReview(item)} className={s.readMore}>Читать дальше...
                                     </button>
                                 </div>
                                 {(!getStudentReviewsPos(index) && !isMobileMiddle) && (<div className={s.studentReviewInfo}>
                                     <div className={s.studentIcon}><img src={item.image} alt={item.name}/></div>
-                                    <p style={getStudentsStyles(index)}
-                                       className={s.studentName}>{item.name}, {item.age}</p>
+                                    <div className={s.studentInfo} style={getStudentsStyles(index)}>
+                                        <p className={s.studentName}>{item.name}, {item.age}</p>
+                                        <p className={s.company}>{item.company}</p>
+                                    </div>
                                 </div>)}
                             </div>
                         ))}

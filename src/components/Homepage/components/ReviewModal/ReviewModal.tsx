@@ -27,7 +27,10 @@ const ReviewModal: React.FC<IProps> = ({ onClose, isModal, review }) => {
             <div ref={modalRef} className={s.modal}>
                 <div className={s.modalLogo}><Logo size={36}/></div>
                 <div className={s.modalInner}>
-                    <p className={s.studentInfo}>{review?.name} {review?.age}</p>
+                    <div className={s.studentInfoWrapper}>
+                        <p className={s.studentInfo}>{review?.name} {review?.age}</p>
+                        <p className={s.company}>{review?.company}</p>
+                    </div>
                     <p className={s.reviewText}>{review?.review}</p>
                 </div>
             </div>
