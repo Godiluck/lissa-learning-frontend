@@ -43,6 +43,9 @@
     font-weight: 400;
     letter-spacing: 5.875px;
   }
+  @include tablet() {
+    font-size: 18px;
+  }
 }
 
 .headerBtns {

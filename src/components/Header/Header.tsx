@@ -19,6 +19,7 @@ export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [isLogin, setIsLogin] = useState<boolean>(false)
     const isMobileMiddle = useMediaQuery(SCREENS.mobileMiddle)
+    const isTablet = useMediaQuery(SCREENS.tablet)
     // const navNodes: navNode[] = [
     //     {name: "Выпускники", pathTo: "/graduates"},
     //     {name: "Блог", pathTo: "/blog"},
@@ -33,6 +34,16 @@ export const Header = () => {
     useClickOutside(isOpen, () => {
         isOpen && setTimeout(() => setIsOpen(false), 100)
     }, navRef)
+
+    const getLogoSize = () => {
+        if (isMobileMiddle) {
+            return 35
+        }
+        if (isTablet) {
+            return 50
+        }
+        return 70
+    }
 
     return (
         <>
