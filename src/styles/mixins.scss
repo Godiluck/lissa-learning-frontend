@@ -1,0 +1,46 @@
+@use "sass:math";
+
+$lg-max-width: 1680px;
+$desktop-min-width: 1280px;
+$tablet-large-max-width: 1400px;
+$tablet-max-width: 1280px;
+$mobile-max-width: 900px;
+$mobile-middle-max-width: 600px;
+$mobile-small-max-width: 425px;
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop-min-width}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (max-width: #{$lg-max-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: #{$tablet-max-width}) {
+    @content;
+  }
+}
+@mixin tabletLarge {
+  @media screen and (max-width: #{$tablet-large-max-width}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: #{$mobile-max-width}) {
+    @content;
+  }
+}
+@mixin mobileMiddle {
+  @media screen and (max-width: #{$mobile-middle-max-width}) {
+    @content;
+  }
+}
+@mixin mobileSmall {
+  @media screen and (max-width: #{$mobile-small-max-width}) {
+    @content;
+  }
+}

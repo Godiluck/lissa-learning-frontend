@@ -5,6 +5,8 @@ import {snackbarTypes} from "../../../../models/common";
 import {useSnackbar} from "notistack";
 import {$AxiosAdminService} from "../../../../utils/interceptor";
 import axios from "axios";
+import useMediaQuery from "../../../../hooks/useMediaQuery";
+import {SCREENS} from "../../../../utils/consts";
 
 interface IProps {
     onClose: () => void;
@@ -18,6 +20,9 @@ const EnrollModalChild: React.FC<IProps> = ({ onClose }) => {
         phone: '',
         telegram: '',
     })
+
+    const isMobileMiddle = useMediaQuery(SCREENS.mobileMiddle)
+
     const onChange = (field: string, val: string) => {
         setFields(prev => ({...prev, [field]: val}))
     }
@@ -59,8 +64,8 @@ const EnrollModalChild: React.FC<IProps> = ({ onClose }) => {
             <div className={s.inputFormBlock}>
                 <InputForm size="100%" field="name" title="" callback={onChange} placeholder="Имя"/>
                 <InputForm size="100%" field="mail" title="" callback={onChange} placeholder="Электронная почта"/>
-                <InputForm size="calc(50% - 15px)" field="phone" title="" callback={onChange} placeholder="Телефон"/>
-                <InputForm size="calc(50% - 15px)" field="telegram" title="" callback={onChange} placeholder="Telegram"/>
+                <InputForm size={isMobileMiddle ? "100%" : "calc(50% - 15px)"} field="phone" title="" callback={onChange} placeholder="Телефон"/>
+                <InputForm size={isMobileMiddle ? "100%" : "calc(50% - 15px)"} field="telegram" title="" callback={onChange} placeholder="Telegram"/>
             </div>
             <button onClick={() => isActive ? sendEnrollRequest() : null} className={isActive ? s.loginBtn : s.loginBtnDisabled}>
                 Отправить

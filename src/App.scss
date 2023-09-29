@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 * {
   font-family: 'Roboto Condensed', sans-serif;
   box-sizing: border-box;
@@ -9,4 +11,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 90px;
+  @include mobileMiddle() {
+    margin-top: 40px;
+  }
 }

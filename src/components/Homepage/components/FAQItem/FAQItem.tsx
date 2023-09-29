@@ -11,7 +11,7 @@ interface IProps {
 const FaqItem: React.FC<IProps> = ({title, bodyText}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     return (
-        <div onClick={() => setIsOpen(!isOpen)} style={isOpen ? {maxHeight: "200px", background: "#20202E", transition: "all .3s ease-in"} : {}} className={s.wrapper}>
+        <div onClick={() => setIsOpen(!isOpen)} style={isOpen ? {maxHeight: "500px", background: "#20202E", transition: "all .3s ease-in"} : {}} className={s.wrapper}>
             <div className={s.header}>
                 <p className={s.headerText}>{title}</p>
                 <div style={isOpen ? {} : {opacity: 1, transform: "rotate(180deg)"}} className={s.headerIndicator}><PlusIcon/></div>

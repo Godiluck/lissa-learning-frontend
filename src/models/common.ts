@@ -10,3 +10,11 @@ export enum direction {
     ASC = "ASC",
     DESC = "DESC",
 }
+
+export interface IReviewItem {
+    name: string;
+    age: string;
+    image: string;
+    company: string;
+    review: string;
+}

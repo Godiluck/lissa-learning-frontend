@@ -1,14 +1,31 @@
+@import "../../../../styles/mixins";
+
 .wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
   cursor: pointer;
-  max-height: 70px;
+  max-height: 75px;
   overflow: hidden;
   transition: .3s all ease-out;
   border-radius: 7px;
   margin-top: 30px;
+  @media screen and (max-width: 545px){
+    &:last-child {
+      max-height: 100px;
+    }
+  }
+  @media screen and (max-width: 407px){
+    &:last-child {
+      max-height: 125px;
+    }
+  }
+  @media screen and (max-width: 346px){
+    &:last-child {
+      max-height: 150px;
+    }
+  }
 }
 
 .wrapper:hover {
@@ -26,9 +43,15 @@
 .headerText {
   font-size: 18px;
   font-weight: 500;
-  line-height: 70px;
+  padding: 12px 0;
+  min-height: 75px;
+  text-align: start;
+  max-width: calc(100% - 70px);
   letter-spacing: 0.18px;
   text-transform: uppercase;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .headerIndicator {
@@ -36,7 +59,7 @@
   align-items: center;
   justify-content: center;
   width: 70px;
-  height: 70px;
+  height: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -52,7 +75,10 @@
   line-height: 40px;
   letter-spacing: 0.18px;
   transition: all .2s ease-in-out;
-  padding: 12px 70px 12px 30px;
+  padding: 12px 30px;
   display: list-item;
   list-style-position: inside;
+  @include mobileMiddle() {
+    line-height: 30px;
+  }
 }
