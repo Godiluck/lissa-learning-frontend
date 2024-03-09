@@ -1,46 +1,67 @@
-.wrapper {
-  width: 100vw;
+/* Base styles for desktop */
+.footerWrapper {
+  width: 100%;
   background: #171723;
   border-radius: 10px 10px 0 0;
-  border-color: #FFFFFF;
-  border-style: solid;
-  border-width: 2px 0 0 0;
+  border-top: 2px solid #FFFFFF;
   padding: 15px 60px;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Vertically center the content */
 }
 
 .contactsBlock {
   display: flex;
-  flex-direction: row;
+  align-items: center; /* Align items vertically in the contact block */
   column-gap: 50px;
 }
 
+.contactTg {
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.contactTg:hover {
+  transform: scale(1.25);
+}
+
+.contactTg:hover svg path {
+  fill: #FFFFFF;
+}
+
 .contactEmail {
-  margin: auto 0;
-  height: fit-content;
-  font-size: 16.054px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 20.067px;
-  transition: all .2s ease-out;
+  line-height: 20px;
+  transition: all 0.2s ease-out;
   cursor: default;
-  &:hover {
-    color: #00ECBE;
+}
+
+.contactEmail:hover {
+  color: #00ECBE;
+}
+
+/* Media query for smaller mobile devices - 576px */
+@media (max-width: 576px) {
+  .footerWrapper {
+    padding: 15px;
+  }
+
+  .contactsBlock {
+    flex-direction: column;
+    margin-top: 20px;
+    column-gap: 0;
+    align-items: center;
+  }
+
+  .contactTg {
+    margin-top: 10px;
   }
 }
 
-.contactTg {
-  height: fit-content;
-  margin: auto 0;
-  cursor: pointer;
-  transition: all .2s ease-out;
-  &:hover {
-    transform: scale(1.25);
-    svg {
-      path {
-        transition: all .2s ease-out;
-        fill: #FFFFFF;
-      }
-    }
+/* Media query for mobile devices - 768px */
+@media (max-width: 768px) {
+  .contactsBlock {
+    justify-content: center;
   }
 }

@@ -48,13 +48,13 @@ const Reports = () => {
 
     const checkFields = async () => {
         if (fields.reportDate.length !== 10) {
-            return showSnackbar("Корректно заполните дату!", snackbarTypes.warning)
+            return showSnackbar("Корректно заполни дату!", snackbarTypes.warning)
         }
         if (fields.studyingTime === '') {
             return showSnackbar("Поле затраченное время не должно быть пустым!", snackbarTypes.warning)
         }
         if (fields.workDone === '') {
-            return showSnackbar("Напишите что вы сделали!", snackbarTypes.warning)
+            return showSnackbar("Напиши что ты сделал!", snackbarTypes.warning)
         }
         const post = await dispatch(postReport(fields))
         if (post?.status === 200) {
@@ -82,7 +82,7 @@ const Reports = () => {
                     <div className={s.inputFormWrapper}>
                         <InputForm background="#F1F1F1" field="reportDate" title="Дата" callback={onChange}
                                    type="date"/>
-                        <InputForm placeholder="Введите только цифру/число" background="#F1F1F1" field="studyingTime" title="Затраченное время"
+                        <InputForm placeholder="Введи только цифру/число" background="#F1F1F1" field="studyingTime" title="Затраченное время"
                                    callback={onChange}
                                    type="number"/>
                         <TextAreaForm placeholder="Пример: подготовка к ревью" minHeight="160px" background="#F1F1F1" field="workDone" title="Что делал" callback={onChange}/>
