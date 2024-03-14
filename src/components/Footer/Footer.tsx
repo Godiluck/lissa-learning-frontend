@@ -9,7 +9,7 @@ export const Footer = () => {
             <Logo />
             <div className={s.contactsBlock}>
                 <p className={s.contactEmail}>Info@lissa-learning.ru</p>
-                <div className={s.contactTg} onClick={() => window.open("https://t.me/vladdosiik/", "_blank")}>
+                <div className={s.contactTg} onClick={() => window.open("https://t.me/LissaLearning/", "_blank")}>
                     <TelegramContactIcon />
                 </div>
             </div>

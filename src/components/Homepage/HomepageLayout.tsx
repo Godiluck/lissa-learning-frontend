@@ -280,7 +280,7 @@ const HomepageLayout = () => {
                                 <li><span>-</span> Миграция данных liquibase</li>
                                 <li><span>-</span> Maven, Gradle</li>
                                 <li><span>-</span> Kafka, Rabbit</li>
-                                <li><span>-</span> Docker</li>
+                                <li><span>-</span> Docker, portainer</li>
                                 <li><span>-</span> Git</li>
                                 <li><span>-</span> Junit, Mockito</li>
                                 <li><span>-</span> Взаимодействие с внешними системами</li>
@@ -338,7 +338,7 @@ const HomepageLayout = () => {
                     <div className={s.bottomBanner}>
                         <div className={s.bottomBannerInfo}>
                             <div className={s.bottomBannerTextBlock}>
-                                <p className={s.bottomBannerTitle}>Оставь заяку для поступления</p>
+                                <p className={s.bottomBannerTitle}>Оставь заявку для поступления</p>
                                 <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате или ты не
                                     знаешь,
                                     что выбрать, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
