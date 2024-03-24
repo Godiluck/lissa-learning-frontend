@@ -97,7 +97,7 @@ const HomepageLayout = () => {
                     <p className={s.bodyTitle}>Обучение проходит дистанционно и нацелено на результат!</p>
                     <p className={s.bodySubTitle}>Наши с тобой цели совпадают – мы получим оплату за обучение только
                         после твоего трудоустройства. Минимальная гарантированная зарплата -
-                        <span  style={{color: "#35b8be"}}> 150 тысяч рублей</span>.</p>
+                        <span  style={{color: "#35b8be", fontWeight: 700}}> 150 тысяч рублей</span>.</p>
                     <div className={s.aboutProductItems}>
                         {aboutProductItems.map(item => (
                             <div className={s.aboutProductItem}>
