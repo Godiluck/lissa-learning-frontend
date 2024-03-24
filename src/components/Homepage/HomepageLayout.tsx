@@ -87,7 +87,7 @@ const HomepageLayout = () => {
                     <div className={s.bannerInfo}>
                         <div className={s.bannerTextBlock}>
                             <span className={s.bannerHeader}>Стань <span style={{color: "#35b8be"}}>java</span> разработчиком</span>
-                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. Первый месяц обучения — бесплатно. </span>
+                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Первый месяц обучения — <span style={{color: "#35b8be"}}>бесплатно</span>. </span>
                         </div>
                         <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Поступить</button>
                     </div>
