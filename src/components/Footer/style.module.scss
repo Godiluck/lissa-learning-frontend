@@ -1,19 +1,15 @@
+@import "../../styles/colors";
+
 /* Base styles for desktop */
 .footerWrapper {
   width: 100%;
-  background: #171723;
+  background: $color-app-black;
   border-radius: 10px 10px 0 0;
-  border-top: 2px solid #FFFFFF;
-  padding: 15px 60px;
+  border-top: 2px solid $color-app-black;
+  padding: 5px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center; /* Vertically center the content */
-}
-
-.contactsBlock {
-  display: flex;
-  align-items: center; /* Align items vertically in the contact block */
-  column-gap: 50px;
 }
 
 .contactTg {
@@ -22,11 +18,11 @@
 }
 
 .contactTg:hover {
-  transform: scale(1.25);
+  transform: scale(1.10);
 }
 
 .contactTg:hover svg path {
-  fill: #FFFFFF;
+  fill: $color-app-mark;
 }
 
 .contactEmail {
@@ -35,10 +31,11 @@
   line-height: 20px;
   transition: all 0.2s ease-out;
   cursor: default;
+  color: $color-app-white;
 }
 
 .contactEmail:hover {
-  color: #00ECBE;
+  color: $color-app-mark
 }
 
 /* Media query for smaller mobile devices - 576px */

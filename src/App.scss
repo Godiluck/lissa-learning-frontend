@@ -1,16 +1,17 @@
 @import "styles/mixins";
+@import "styles/colors";
 
 * {
   font-family: 'Roboto Condensed', sans-serif;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: $color-app-black;
 }
 
 .wrapper {
-  background: #171723;
+  background: $color-app-white;
   display: flex;
   flex-direction: column;
-  margin-top: 90px;
+  margin-top: 80px;
   @include mobileMiddle() {
     margin-top: 40px;
   }

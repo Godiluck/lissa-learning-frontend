@@ -6,12 +6,10 @@ import TelegramContactIcon from "../../svgs/TelegramContactIcon";
 export const Footer = () => {
     return (
         <div className={s.footerWrapper}>
-            <Logo />
-            <div className={s.contactsBlock}>
-                <p className={s.contactEmail}>Info@lissa-learning.ru</p>
-                <div className={s.contactTg} onClick={() => window.open("https://t.me/LissaLearning/", "_blank")}>
-                    <TelegramContactIcon />
-                </div>
+            <Logo size={48}/>
+            <p className={s.contactEmail}>Info@lissa-learning.ru</p>
+            <div className={s.contactTg} onClick={() => window.open("https://t.me/LissaLearning/", "_blank")}>
+                <TelegramContactIcon />
             </div>
         </div>
     );

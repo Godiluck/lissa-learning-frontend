@@ -1,4 +1,5 @@
 @import "/src/styles/mixins";
+@import "/src/styles/colors";
 
 .overlay {
   position: fixed;
@@ -21,8 +22,8 @@
   max-height: 80%;
   overflow: visible;
   border-radius: 10px;
-  border: 2px solid #FFF;
-  background: #171723;
+  border: 2px solid $color-app-cyan;
+  background:$color-app-cyan;
   @include mobile() {
     width: 90%;
   }
@@ -32,7 +33,7 @@
   flex-direction: column;
   align-items: center;
   padding: 84px 10% 100px 10%;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -54,7 +55,7 @@
 }
 
 .modalLogoTextUpper {
-  color: #00ECBE;
+  color: $color-app-mark;
   text-transform: uppercase;
   font-family: 'Nokora', sans-serif;
   font-size: 25px;

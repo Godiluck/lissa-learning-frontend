@@ -56,7 +56,7 @@ export const Header = () => {
                     {!isMobileMiddle && <span className={s.logoWrapperText}>Learning</span>}
                 </Link>
                 <div className={s.headerBtns}>
-                    {!externalId && <button onClick={() => setIsLogin(!isLogin)} className={s.loginBtn}>Войти</button>}
+                    {/*{!externalId && <button onClick={() => setIsLogin(!isLogin)} className={s.loginBtn}>Войти</button>}*/}
                 </div>
             </div>
         </>
