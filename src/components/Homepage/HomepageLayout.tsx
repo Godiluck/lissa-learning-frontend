@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import s from './style.module.scss'
-import HomepageBannerIcon from "../../svgs/HomepageBannerIcon";
+import HomePageBannerIconDesktop from '../../images/HomePageBannerIcons/HomePageBannerIconDesktop.png';
 import FAQItem from "./components/FAQItem/FAQItem";
 import HomepageBottomBannerIcon from "../../svgs/HomepageBottomBannerIcon";
 import Modal from "../Modal/Modal";
@@ -52,7 +52,7 @@ const HomepageLayout = () => {
         }
         return (
             <div className={s.bannerIcon}>
-                <HomepageBannerIcon/>
+                <img src={HomePageBannerIconDesktop} alt="HomePageBannerIconDesktop"/>
             </div>
         )
     }
