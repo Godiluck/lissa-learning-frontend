@@ -1,10 +1,19 @@
 import {IReportFields} from "../models/account";
-import {IOffer, IOfferFields} from "../models/offers";
+import {IOfferFields} from "../models/offers";
 import Alisa from '../images/Alisa.jpg'
 import Veronika from '../images/Veronika.jpg'
 import Ivan from '../images/Ivan.jpg'
 import Alexey from '../images/Alexey.jpg'
-import {IReviewItem} from "../models/common";
+import {IAboutProductItem, IReviewItem, IWhatYourGetItem} from "../models/common";
+
+import WhatYourGetIcon1 from '../images/WhatYourGetIcons/WhatYourGetIcon1.png'
+import WhatYourGetIcon2 from '../images/WhatYourGetIcons/WhatYourGetIcon2.png'
+import WhatYourGetIcon3 from '../images/WhatYourGetIcons/WhatYourGetIcon3.png'
+
+import AboutProductItemIcon1 from '../images/AboutProductItcons/AboutProductItemIcon1.png'
+import AboutProductItemIcon2 from '../images/AboutProductItcons/AboutProductItemIcon2.png'
+import AboutProductItemIcon3 from '../images/AboutProductItcons/AboutProductItemIcon3.png'
+import AboutProductItemIcon4 from '../images/AboutProductItcons/AboutProductItemIcon4.png'
 
 type ScreenTypes = "tablet" | "mobileSmall" | "mobileMiddle" | "mobile";
 
@@ -57,4 +66,46 @@ export const studentReviews: IReviewItem[] = [
         company: `Устроилась в компанию "СПБ Биржа"`,
         review: "Поступала в универ, особо не зная, чем вообще хочу заниматься, к 4 курсу уже понимала, что не хочу работать по профессии (училась на материаловеда), а как начали проходить практику, осознала, что нужно быстро что-то изучать, чтобы не остаться ни с чем после получения диплома. Начала перебирать варианты, всё требовало вложения денег и было сопряжено с рисками прогореть. Я со второго курса, конечно, подрабатывала, делала лабы сокурсникам, репетиторствовала, но чем-то серьезно не занималась. Друг посоветовал пойти на обучение, оплата после трудоустройства, время на подготовку у меня было, да и профессия востребована. Решила попробовать, Т.к. в программировании была полным 0, ментор посоветовал пройти пару уроков на джавараш, чтобы понять нужно ли оно мне, отвечал на вопросы, если было что-то не понятно. Мне понравилось, решила продолжать и подписала договор. Хочу сказать, было трудно, но время было на моей стороне) Ментор подкидывал доп.задачи, был на связи (общались через телеграмм и устраивали созвоны), объяснял непонятные моменты. И я сама, конечно, много гуглила и изучала. Пришлось привыкнуть к тому, что можно потратить целый день, выясняя в чем ошибка, и понять, что просто не дописала строчку (на работе это периодически тоже практикую), и это с учетом, что пользоватся дебагером учат сразу. Перед сдачей диплома взяла перерыв на месяц, но старалась делать что-то каждый день, присутсвовала на созвонах с другими учениками и решала задачки на литкоде. По итогу, все этапы были пройдены, вышла на подготовку к собесам. Память у меня очень хорошая, но говорю я плохо, над этим пришлось прям поработать. Было много созвонов, где мы просто обсуждали пройденные и понятные темы, чтобы я научилась излагать свои мысли. В результате диплом защитила на уверенную тройку и не жалею) К концу учебного года уже было понимание, куда двигаться дальше. Уже больше года работаю программистом, с доходом в 250к, чувствую себя уверенно и планирую расти дальше."
     }
+]
+
+export const aboutProductItems: IAboutProductItem[] = [
+    {
+        text: "Интенсивная подготовка с ментором",
+        image: AboutProductItemIcon4
+    },
+    {
+        text: "Опыт в реальном проекте",
+        image: AboutProductItemIcon2
+    },
+    {
+        text: "Поддержка во время работы",
+        image: AboutProductItemIcon3
+    },
+    {
+        text: "Гарантированное трудоустройство",
+        image: AboutProductItemIcon1
+    },
+]
+
+export const whatYourGetItems: IWhatYourGetItem[] = [
+    {
+        title: "Менторство:",
+        text: "Ментор — это не педагог. Большая часть обучения нацелена на самообучение с полным контролем со стороны ментора. Наша задача — направлять, давать дополнительные задачи и материалы для успешного освоения материала.",
+        image: WhatYourGetIcon1
+    },
+    {
+        title: "Мотивация и поддержка:",
+        text: "На протяжении обучения вы будете постоянно взаимодействовать с ментором. Любые трудности будут решаться вместе. После трудоустройсва мы никуда не пропадем, постоянная поддержка гарантируется.",
+        image: WhatYourGetIcon2
+    },
+    {
+        title: "Контроль знаний:",
+        text: "Мы предъявляем высокие требования к каждому этапу обучения, поэтому будут постоянные проверки знаний и решений. Только таким образом у нас с вами получится добиться желаемого результата.",
+        image: WhatYourGetIcon2
+    },
+    {
+        title: "Подготовка к собеседованиям:",
+        text: "Мы обеспечиваем индивидуальный подход к каждому ученику при подготовке к интервью, исправляем недоработки, отрабатываем весь необходимый материал для получения наиболее выгодного предложения на выходе.",
+        image: WhatYourGetIcon3
+    },
 ]

@@ -1,3 +1,5 @@
+import {whatYourGetItems} from "../utils/consts";
+
 export enum snackbarTypes {
     default = "default",
     success = "success",
@@ -17,4 +19,15 @@ export interface IReviewItem {
     image: string;
     company: string;
     review: string;
+}
+
+export interface IAboutProductItem {
+    image: string,
+    text: string
+}
+
+export interface IWhatYourGetItem {
+    image: string,
+    title: string,
+    text: string
 }

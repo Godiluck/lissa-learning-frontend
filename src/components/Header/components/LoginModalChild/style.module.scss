@@ -1,3 +1,5 @@
+@import "../../../../styles/colors";
+
 .wrapper {
   width: 100%;
   height: fit-content;
@@ -11,13 +13,19 @@
   flex-direction: column;
   width: 100%;
   row-gap: 30px;
+
+  input {
+    background-color: $color-app-white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    color: $color-app-blue;
+  }
 }
 
 .loginBtn {
   cursor: pointer;
+  border: 2px solid $color-app-mark;
   border-radius: 5px;
-  border: 2px solid #FFF;
-  background: #197664;
+  background: $color-app-mark;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
@@ -25,18 +33,18 @@
   transition: all .2s ease-out;
   margin-top: 30px;
   padding: 10px 50px;
+  color: $color-app-white;
   &:hover {
-    background: #FFFFFF;
-    color: #00ECBE;
-    border: 2px solid #00ECBE;
+    background: $color-app-white;
+    color: $color-app-mark;
   }
 }
 
 .loginBtnDisabled {
   cursor: default;
   border-radius: 5px;
-  border: 2px solid #FFF;
-  background: #197664;
+  border: 2px solid $color-app-mark;
+  background: $color-app-mark;
   opacity: .3;
   font-size: 24px;
   font-weight: 400;

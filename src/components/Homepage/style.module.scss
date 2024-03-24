@@ -1,4 +1,5 @@
 @import "../../styles/mixins";
+@import "../../styles/colors";
 
 .wrapper {
   width: 100%;
@@ -7,13 +8,6 @@
   overflow: hidden;
   justify-content: center;
   flex-direction: column;
-  row-gap: 80px;
-  @include tablet() {
-    row-gap: 50px;
-  }
-  @include mobile() {
-    row-gap: 40px;
-  }
 }
 
 p {
@@ -28,11 +22,7 @@ a {
 .topBanner {
   height: 526px;
   width: 100%;
-  background: #197664;
-  border-radius: 0 0 10px 10px;
-  border-color: #FFFFFF;
-  border-style: solid;
-  border-width: 0 0 1px 0;
+  background: $color-app-white;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -60,7 +50,10 @@ a {
     width: 100%;
   }
   @include mobile() {
-    padding: 50px 30px 120px 30px;
+    padding: 50px 30px 60px 30px;
+  }
+  @include mobileMiddle() {
+    padding: 50px 30px 90px 30px;
   }
 }
 
@@ -71,7 +64,6 @@ a {
   span {
     font-weight: 500;
     text-transform: uppercase;
-    color: #FFFFFF;
   }
   @include tablet() {
     width: 100%;
@@ -93,6 +85,7 @@ a {
 
 .bannerSubHeader {
   font-size: 32px;
+  color: $color-app-blue;
   @include tablet() {
     font-size: 28px;
     max-width: calc(100% - 408px);
@@ -144,13 +137,13 @@ a {
   padding: 23px 0;
   letter-spacing: 2.64px;
   border-radius: 20px;
-  border: 2px solid #000;
-  background: #F4F4F4;
-  color: #141419;
+  border: 2px solid $color-app-mark;
+  background: $color-app-mark;
+  color: $color-app-white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
   transition: all .3s ease-out;
   &:hover {
-    border: 2px solid rgba(0, 236, 190, 0.45);
-    box-shadow: 3px 5px 5px 5px rgba(0, 236, 190, 0.45);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
   }
   @include tablet() {
@@ -170,15 +163,17 @@ a {
 }
 
 .bodyBlock {
-  padding: 0 120px;
+  padding: 80px 120px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
   @include tablet() {
-    padding: 0 40px;
+    padding: 40px 40px;
   }
   @include mobile() {
-    padding: 0 15px;
+    row-gap: 20px;
+    padding: 50px 15px;
   }
 }
 
@@ -188,11 +183,15 @@ a {
   text-transform: uppercase;
   text-align: start;
   letter-spacing: .42px;
+  border-color: $color-app-mark;
+  border-style: solid;
+  border-width: 0 0 0 5px;
+  padding: 0 0 0 20px;
   @include tablet() {
     font-size: 30px;
   }
   @include mobile() {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -203,11 +202,12 @@ a {
   text-align: start;
   padding-left: 7px;
   letter-spacing: 2.86px;
+  color: $color-app-blue;
   @include tablet() {
     font-size: 18px;
   }
   @include mobile() {
-    font-size: 13px;
+    font-size: 18px;
   }
 }
 
@@ -216,6 +216,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
   @include tablet() {
     margin-top: 20px;
     row-gap: 25px;
@@ -227,16 +229,46 @@ a {
   display: flex;
   flex-direction: column;
   row-gap: 19px;
-  max-width: 25%;
   align-items: center;
   min-width: 250px;
+  max-width: 450px;
+  background: $color-app-white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  border-radius: 20px;
+  border: 2px solid $color-app-white;
+  padding: 20px 10px;
+  transition: all .3s ease-out;
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  &:hover {
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    max-width: 80px;
+  }
+
+  @include tablet() {
+    font-size: 18px;
+    padding: 10px 0;
+    min-width: 390px;
+    max-width: 450px;
+    p {
+      font-size: 24px;
+    }
+  }
+
   @include mobile() {
-    min-width: 170px;
-    svg {
+    row-gap: 0;
+    min-width: 300px;
+
+    img {
       max-width: 48px;
     }
     p {
-      font-size: 15px;
+      font-size: 18px;
     }
   }
 }
@@ -256,8 +288,15 @@ a {
   row-gap: 30px;
   height: auto;
   max-width: calc(50% - 20px);
-  border-radius: 10px;
-  border: 2px solid #FFF;
+  background: $color-app-cyan;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  border-radius: 20px;
+  border: 2px solid $color-app-cyan;
+  transition: all .3s ease-out;
+  &:hover {
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
   @include tablet() {
     padding: 20px;
     row-gap: 20px;
@@ -265,6 +304,7 @@ a {
   @include mobile() {
     min-width: 100%;
     padding: 10px;
+    row-gap: 10px;
   }
 }
 
@@ -275,7 +315,7 @@ a {
 }
 
 .whatYouGetItemIcon {
-  svg {
+  img {
     min-width: 100px;
     height: 100px;
     @include tablet() {
@@ -283,7 +323,7 @@ a {
       max-width: 72px;
       height: 72px;
     }
-    @include mobileMiddle() {
+    @include mobile() {
       min-width: 55px;
       max-width: 55px;
       height: 55px;
@@ -297,17 +337,17 @@ a {
   line-height: 45px;
   letter-spacing: .32px;
   text-transform: uppercase;
-  //@include tablet() {
-  //  font-size: 26px;
-  //  line-height: 30px;
-  //}
-  @include mobileMiddle() {
-    font-size: 16px;
+  @include tablet() {
+    font-size: 26px;
+  }
+  @include mobile() {
+    font-size: 20px;
     line-height: 20px;
   }
 }
 
 .whatYouGetText {
+  color: $color-app-blue;
   font-size: 22px;
   font-weight: 500;
   line-height: 33px;
@@ -317,7 +357,8 @@ a {
     font-size: 18px;
   }
   @include mobile() {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -347,10 +388,18 @@ a {
 .studentReview {
   max-width: calc(50% - 30px);
   border-radius: 10px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid $color-app-white;
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  padding: 10px;
+  background: $color-app-white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  transition: all .3s ease-out;
+  &:hover {
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
   @include tablet() {
     max-width: none;
     width: 100%;
@@ -358,18 +407,18 @@ a {
 }
 
 .studentInfo {
-  border-color: #FFFFFF;
-  border-style: solid;
-  height: 72px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  padding-bottom: 10px;
   align-items: center;
+  gap: 5px;
 }
 
 .studentIcon {
   height: 260px;
   width: 260px;
+  border-radius: 10px;
+  overflow: hidden;
   img {
     height: 100%;
     width: 100%;
@@ -387,7 +436,7 @@ a {
 }
 
 .company {
-  color: #00ECBE;
+  color: $color-app-mark;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.14px;
@@ -400,7 +449,7 @@ a {
   width: 100%;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .studentReviewTextBlock {
@@ -416,17 +465,18 @@ a {
   text-overflow: ellipsis;
   max-width: 100%;
   max-height: 240px;
-  text-align: start;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
   letter-spacing: 0.16px;
+  color: $color-app-blue;
+  text-align: justify;
 }
 
 .readMore {
   background: none;
   border: none;
-  color: #00ECBE;
+  color: $color-app-mark;
   font-size: 16px;
   font-weight: 500;
   height: 62px;
@@ -437,14 +487,18 @@ a {
 }
 
 .bottomBanner {
-  border-radius: 10px;
-  border: 2px solid #00ECBE;
   padding: 54px 43px;
   display: flex;
   flex-direction: row;
   column-gap: 100px;
   width: 80%;
   margin: 0 auto;
+  background: $color-app-cyan;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  border: 2px solid $color-app-cyan;
+  transition: all .3s ease-out;
+
   @include tablet() {
     width: 90%;
     padding: 27px 20px;
@@ -492,14 +546,12 @@ a {
   letter-spacing: 0.2px;
   text-align: start;
   @include tablet() {
-    font-size: 14px;
-  }
-  @include mobile() {
     font-size: 16px;
   }
 }
 
 .bottomBannerBtn {
+  cursor: pointer;
   padding: 17px 85px;
   width: fit-content;
   text-transform: uppercase;
@@ -508,15 +560,16 @@ a {
   line-height: 154%;
   letter-spacing: 2.64px;
   border-radius: 20px;
-  border: 2px solid #000;
-  background: #F4F4F4;
-  color: #141419;
   transition: all .3s ease-out;
+  border: 2px solid $color-app-mark;
+  background: $color-app-mark;
+  color: $color-app-white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
   &:hover {
-    border: 2px solid rgba(0, 236, 190, 0.45);
-    box-shadow: 3px 5px 5px 5px rgba(0, 236, 190, 0.45);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
   }
+
   @include mobile() {
     font-size: 18px;
     padding: 17px 0;
@@ -544,8 +597,16 @@ a {
   max-width: calc(25% - 15px);
   width: 100%;
   padding:10px 10px 30px 10px;
+  background: $color-app-cyan;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
   border-radius: 10px;
-  border: 2px solid #FFF;
+  border: 2px solid $color-app-cyan;
+  transition: all .3s ease-out;
+
+  &:hover {
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
   &:last-child {
     max-width: calc(50% - 15px);
     width: auto;
@@ -589,31 +650,28 @@ a {
   column-gap: 10px;
   align-items: center;
   div {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
-    color: #00ECBE;
+    color: $color-app-white;
     letter-spacing: 0.28px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 50px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #FFF;
+    width: 35px;
+    height: 35px;
+    background-color: $color-app-mark;
+    border: 2px solid $color-app-mark;
     border-radius: 50%;
   }
   p {
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 500;
     line-height: 70px;
     letter-spacing: 0.24px;
     text-transform: uppercase;
     @include mobile() {
-      font-size: 16px;
-    }
-    @include mobileMiddle() {
-      font-size: 20px;
+      font-size: 24px;
       line-height: 24px;
     }
   }
@@ -622,8 +680,8 @@ a {
 .studyProgramItemBody {
   margin-top: 30px;
   margin-bottom: 0;
-  list-style-type: none;
-  padding: 0 20px;
+  list-style-type: disc;
+  padding: 0 30px;
   .studyProgramArrow {
     transform: rotate(90deg);
     width: 30px;
@@ -638,18 +696,15 @@ a {
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0.18px;
-    display: flex;
-    column-gap: 6px;
+    color: $color-app-blue;
     &:last-child {
       margin-bottom: 0;
     }
-    span {
-      color: #00ECBE;
+    &::marker {
+      color: $color-app-mark;
     }
+
     @include mobile() {
-      font-size: 13px;
-    }
-    @include mobileMiddle() {
       font-size: 18px;
     }
   }
