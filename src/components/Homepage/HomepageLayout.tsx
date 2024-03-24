@@ -6,7 +6,7 @@ import HomepageBottomBannerIcon from "../../svgs/HomepageBottomBannerIcon";
 import Modal from "../Modal/Modal";
 import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
 import useMediaQuery from "../../hooks/useMediaQuery";
-import {aboutProductItems, SCREENS, studentReviews, whatYourGetItems} from "../../utils/consts";
+import {aboutProductItems, FAQItems, SCREENS, studentReviews, whatYourGetItems} from "../../utils/consts";
 import HomepageBannerIconMobile from "../../svgs/HomepageBannerIconMobile";
 import HomepageBannerIconTablet from "../../svgs/HomepageBannerIconTablet";
 import ArrowDown from "../../svgs/ArrowDown";
@@ -87,8 +87,7 @@ const HomepageLayout = () => {
                     <div className={s.bannerInfo}>
                         <div className={s.bannerTextBlock}>
                             <span className={s.bannerHeader}>Стань <span style={{color: "#35b8be"}}>java</span> разработчиком</span>
-                            <span className={s.bannerSubHeader}>будь специалистом с зарплатой от <span
-                                style={{color: "#35b8be"}}>150 тысяч</span><br/> оплата после трудоустройства</span>
+                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. Первый месяц обучения — бесплатно. </span>
                         </div>
                         <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Поступить</button>
                     </div>
@@ -97,8 +96,8 @@ const HomepageLayout = () => {
                 <div className={s.bodyBlock} style={{ background: "#def7fe" }}>
                     <p className={s.bodyTitle}>Обучение проходит дистанционно и нацелено на результат!</p>
                     <p className={s.bodySubTitle}>Наши с тобой цели совпадают – мы получим оплату за обучение только
-                        после
-                        твоего трудоустройства.</p>
+                        после твоего трудоустройства. Минимальная гарантированная зарплата -
+                        <span  style={{color: "#35b8be"}}>150 тысяч рублей</span>.</p>
                     <div className={s.aboutProductItems}>
                         {aboutProductItems.map(item => (
                             <div className={s.aboutProductItem}>
@@ -135,17 +134,9 @@ const HomepageLayout = () => {
                         <p className={s.bodyTitle}>часто задаваемые вопросы</p>
                     </div>
                     <div className={s.FAQItems}>
-                        <FAQItem title="Мне 40 лет, возможно ли поступить на курс?"
-                                 bodyText="Да, зависит от твоей вовлеченности и способности уделять примерно 20 часов в неделю (больше — лучше)."/>
-                        <FAQItem title="Сколько длится обучение?"
-                                 bodyText="Зависит от твоей предыдущей подготовки. Например, с нуля до трудоустройства мы ориентируемся на 12 месяцев, но самый быстрый ученик справился за 4 месяца!"/>
-                        <FAQItem title="Что будет, если я не смогу устроиться?"
-                                 bodyText="Хоть такое и маловероятно, но по договору ты нам ничего не будешь должен. Обучение по сути станет бесплатным."/>
-                        <FAQItem title="Сколько я буду платить после трудоустройства?"
-                                 bodyText="За наши труды и риски мы берем 15% от зарплаты в течение 2 лет."/>
-                        <FAQItem
-                            title="Что делать, если на работе я столкнусь с трудностями с решением поставленных задач?"
-                            bodyText="С нашей стороны ты получишь поддержку в течение года с момента трудоустройства, а значит, трудности мы будем преодолевать вместе!"/>
+                        {FAQItems.map(item => (
+                            <FAQItem title={item.title} bodyText={item.text}/>
+                        ))}
                     </div>
                 </div>
                 <div className={s.bodyBlock}>

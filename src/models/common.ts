@@ -31,3 +31,8 @@ export interface IWhatYourGetItem {
     title: string,
     text: string
 }
+
+export interface IFAQItem {
+    title: string,
+    text: string
+}
