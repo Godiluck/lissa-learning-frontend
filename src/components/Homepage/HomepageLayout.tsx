@@ -87,7 +87,7 @@ const HomepageLayout = () => {
                     <div className={s.bannerInfo}>
                         <div className={s.bannerTextBlock}>
                             <span className={s.bannerHeader}>Стань <span style={{color: "#35b8be"}}>java</span> разработчиком</span>
-                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Первый месяц обучения — <span style={{color: "#35b8be"}}>бесплатно</span>. </span>
+                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Минимальная гарантированная зарплата — <span style={{color: "#35b8be"}}>150 тысяч рублей</span>. </span>
                         </div>
                         <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Поступить</button>
                     </div>
@@ -96,8 +96,7 @@ const HomepageLayout = () => {
                 <div className={s.bodyBlock} style={{ background: "#def7fe" }}>
                     <p className={s.bodyTitle}>Обучение проходит дистанционно и нацелено на результат!</p>
                     <p className={s.bodySubTitle}>Наши с тобой цели совпадают – мы получим оплату за обучение только
-                        после твоего трудоустройства. Минимальная гарантированная зарплата -
-                        <span  style={{color: "#35b8be", fontWeight: 700}}> 150 тысяч рублей</span>.</p>
+                        после твоего трудоустройства.</p>
                     <div className={s.aboutProductItems}>
                         {aboutProductItems.map(item => (
                             <div className={s.aboutProductItem}>
