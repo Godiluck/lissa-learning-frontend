@@ -89,7 +89,7 @@ const HomepageLayout = () => {
                             <span className={s.bannerHeader}>Стань <span style={{color: "#35b8be"}}>java</span> разработчиком</span>
                             <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Минимальная гарантированная зарплата — <span style={{color: "#35b8be"}}>150 тысяч рублей</span>. </span>
                         </div>
-                        <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Поступить</button>
+                        <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Начать обучение</button>
                     </div>
                     {getHomepageBanner()}
                 </div>
@@ -261,12 +261,10 @@ const HomepageLayout = () => {
                         <div className={s.bottomBannerInfo}>
                             <div className={s.bottomBannerTextBlock}>
                                 <p className={s.bottomBannerTitle}>Оставь заявку для поступления</p>
-                                <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате или ты не
-                                    знаешь,
-                                    что выбрать, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
+                                <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате, оплате или условиях, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
                                     вопросы.</p>
                             </div>
-                            <button onClick={() => setIsEnroll(true)} className={s.bottomBannerBtn}>Поступить</button>
+                            <button onClick={() => setIsEnroll(true)} className={s.bottomBannerBtn}>Оставить заявку</button>
                         </div>
                         {!isMobileMiddle &&
                             <div className={s.bottomBannerIcon}><HomepageBottomBannerIcon size={getBottomBannerSize()}/>
