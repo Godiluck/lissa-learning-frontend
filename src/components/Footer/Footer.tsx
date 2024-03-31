@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './style.module.scss'
-import LogoIcon from "../../svgs/LogoIcon";
+import LogoIcon from "../Logo/LogoIcon";
 import TelegramContactIcon from "../../svgs/TelegramContactIcon";
 
 export const Footer = () => {

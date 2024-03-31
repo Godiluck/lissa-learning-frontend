@@ -509,18 +509,19 @@ a {
 .bottomBannerInfo {
   display: flex;
   flex-direction: column;
-  row-gap: 72px;
+  row-gap: 30px;
   align-items: center;
   justify-content: center;
-  @include tablet() {
-    row-gap: 30px;
-  }
 }
 
 .bottomBannerTextBlock {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  @include mobile() {
+    font-size: 22px;
+    row-gap: 10px;
+  }
 }
 
 .bottomBannerTitle {
@@ -529,7 +530,7 @@ a {
   line-height: 30px;
   letter-spacing: 0.32px;
   text-align: start;
-  @include tablet() {
+  @include mobile() {
     font-size: 22px;
   }
 }
@@ -540,7 +541,7 @@ a {
   line-height: 30px;
   letter-spacing: 0.2px;
   text-align: start;
-  @include tablet() {
+  @include mobile() {
     font-size: 16px;
   }
 }

@@ -50,6 +50,12 @@
   margin: 0 auto;
 }
 
+.modalCloseIcon {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+}
+
 .studentInfoWrapper {
   display: flex;
   flex-direction: column;

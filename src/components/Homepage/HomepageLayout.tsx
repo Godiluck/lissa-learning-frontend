@@ -10,6 +10,7 @@ import HomepageBannerIconTablet from "../../svgs/HomepageBannerIconTablet";
 import ArrowDown from "../../svgs/ArrowDown";
 import ReviewModal from "./components/ReviewModal/ReviewModal";
 import {IReviewItem} from "../../models/common";
+import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
 
 const HomepageLayout = ({ setIsEnroll }) => {
     const [review, setReview] = useState<IReviewItem | null>(null)
@@ -244,7 +245,7 @@ const HomepageLayout = ({ setIsEnroll }) => {
                         ))}
                     </div>
                 </div>
-                <div className={s.bodyBlock}>
+                <div className={s.bodyBlock} id="contacts">
                     <div className={s.bottomBanner}>
                         <div className={s.bottomBannerInfo}>
                             <div className={s.bottomBannerTextBlock}>
@@ -254,7 +255,7 @@ const HomepageLayout = ({ setIsEnroll }) => {
                                     что выбрать, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
                                     вопросы.</p>
                             </div>
-                            <button onClick={() => setIsEnroll(true)} className={s.bottomBannerBtn}>Поступить</button>
+                            <EnrollModalChild onClose={() => {}}/>
                         </div>
                         {!isMobileMiddle &&
                             <div className={s.bottomBannerIcon}><HomepageBottomBannerIcon size={getBottomBannerSize()}/>

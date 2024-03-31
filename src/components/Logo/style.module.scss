@@ -1,0 +1,49 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.logoTextWrapper {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+
+  .logoMainText {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    line-height: 25px;
+    span {
+      font-family: 'Nokora', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+    }
+  }
+
+  .logoSecondaryText {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    line-height: 20px;
+    span {
+      font-family: 'Nokora', sans-serif;
+      color: $color-app-white;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+
+  .logoText {
+    &:first-child {
+      font-family: 'Nokora', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      max-width: 40px;
+    }
+    &:last-child {
+      font-family: 'Nokora', sans-serif;
+      color: $color-app-white;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+}
