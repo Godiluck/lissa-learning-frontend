@@ -1,6 +1,6 @@
 import React, {ReactNode, useEffect, useRef} from 'react';
 import s from './style.module.scss'
-import Logo from "../../svgs/Logo";
+import LogoIcon from "../../svgs/LogoIcon";
 import useClickOutside from "../../hooks/useClickOutside";
 
 interface IProps {
@@ -24,7 +24,7 @@ const Modal: React.FC<IProps> = ({child, onClose, isModal}) => {
     return (
         <div style={isModal ? {opacity: 1, transition: "all .5s ease", pointerEvents: "initial"} : {}} className={s.overlay}>
             <div ref={modalRef} className={s.modal}>
-                <div className={s.modalLogo}><Logo size={132} circuitColor="#35b8be"/></div>
+                <div className={s.modalLogo}><LogoIcon size={132} circuitColor="#35b8be"/></div>
                 <div className={s.modalInner}>
                     <p className={s.modalLogoTextUpper}>Lissa</p>
                     <p className={s.modalLogoTextLower}>Learning</p>

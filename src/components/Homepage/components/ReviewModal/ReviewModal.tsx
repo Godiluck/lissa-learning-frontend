@@ -1,7 +1,7 @@
-import React, {ReactNode, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import useClickOutside from "../../../../hooks/useClickOutside";
 import s from "./style.module.scss";
-import Logo from "../../../../svgs/Logo";
+import LogoIcon from "../../../../svgs/LogoIcon";
 import {IReviewItem} from "../../../../models/common";
 
 interface IProps {
@@ -25,7 +25,7 @@ const ReviewModal: React.FC<IProps> = ({ onClose, isModal, review }) => {
     return (
         <div style={isModal ? {opacity: 1, transition: "all .5s ease", pointerEvents: "initial"} : {}} className={s.overlay}>
             <div ref={modalRef} className={s.modal}>
-                <div className={s.modalLogo}><Logo size={36} circuitColor="#35b8be" /></div>
+                <div className={s.modalLogo}><LogoIcon size={36} circuitColor="#35b8be" /></div>
                 <div className={s.modalInner}>
                     <div className={s.studentInfoWrapper}>
                         <p className={s.studentInfo}>{review?.name} {review?.age}</p>

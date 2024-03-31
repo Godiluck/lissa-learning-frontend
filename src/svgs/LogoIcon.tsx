@@ -5,7 +5,7 @@ interface IProps {
     circuitColor?: string
 }
 
-const Logo: React.FC<IProps> = ({ size = 70, circuitColor = "#f5fbfc" }) => {
+const LogoIcon: React.FC<IProps> = ({ size = 70, circuitColor = "#f5fbfc" }) => {
     return (
         <svg width={size} height={size} viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="34.9997" cy="35" rx="34.9997" ry="35" fill={circuitColor} />
@@ -21,4 +21,4 @@ const Logo: React.FC<IProps> = ({ size = 70, circuitColor = "#f5fbfc" }) => {
     );
 };
 
-export default Logo;
+export default LogoIcon;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./App.scss"
 import {Header} from "./components/Header/Header";
 import {Footer} from "./components/Footer/Footer";
@@ -13,15 +13,20 @@ import Review from "./components/Account/components/Review/Review";
 import Analytics from "./components/Account/components/Analytics/Analytics";
 import {useAppSelector} from "./hooks/redux";
 import Offers from "./components/Account/components/Offers/Offers";
+import Modal from "./components/Modal/Modal";
+import EnrollModalChild from "./components/Homepage/components/EnrollModalChild/EnrollModalChild";
 
 const App = () => {
     const {externalId} = useAppSelector((state) => state.userReducer)
+    const [isEnroll, setIsEnroll] = useState<boolean>(false)
 
-    // useEffect(() => {
-    //     if (localStorage.getItem("token")) {
-    //
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (isEnroll) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "initial"
+        }
+    }, [isEnroll])
 
     return (
         <BrowserRouter>
@@ -34,9 +39,11 @@ const App = () => {
                 hideIconVariant={true}
             >
                 <div className="wrapper">
-                    <Header/>
+                    <Header setIsEnroll={setIsEnroll}/>
+                    <Modal isModal={isEnroll} child={<EnrollModalChild onClose={() => setIsEnroll(false)}/>}
+                           onClose={() => setIsEnroll(false)}/>
                     <Routes>
-                        <Route path='/' element={<HomepageLayout/>}/>
+                        <Route path='/' element={<HomepageLayout setIsEnroll={setIsEnroll}/>}/>
                         <Route path='auth' element={<AuthLayout/>}/>
                         <Route path='lk' element={<AccountLayout/>}>
                             {externalId && (
