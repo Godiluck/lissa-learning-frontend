@@ -653,8 +653,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
     background-color: $color-app-mark;
     border: 2px solid $color-app-mark;
     border-radius: 50%;
