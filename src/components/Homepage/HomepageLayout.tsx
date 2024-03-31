@@ -3,6 +3,7 @@ import s from './style.module.scss'
 import HomePageBannerIconDesktop from '../../images/HomePageBannerIcons/HomePageBannerIconDesktop.png';
 import FAQItem from "./components/FAQItem/FAQItem";
 import HomepageBottomBannerIcon from "../../svgs/HomepageBottomBannerIcon";
+import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import {aboutProductItems, FAQItems, SCREENS, studentReviews, whatYourGetItems} from "../../utils/consts";
 import HomepageBannerIconMobile from "../../svgs/HomepageBannerIconMobile";
@@ -10,7 +11,6 @@ import HomepageBannerIconTablet from "../../svgs/HomepageBannerIconTablet";
 import ArrowDown from "../../svgs/ArrowDown";
 import ReviewModal from "./components/ReviewModal/ReviewModal";
 import {IReviewItem} from "../../models/common";
-import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
 
 const HomepageLayout = ({ setIsEnroll }) => {
     const [review, setReview] = useState<IReviewItem | null>(null)
@@ -75,17 +75,16 @@ const HomepageLayout = ({ setIsEnroll }) => {
                     <div className={s.bannerInfo}>
                         <div className={s.bannerTextBlock}>
                             <span className={s.bannerHeader}>Стань <span style={{color: "#35b8be"}}>java</span> разработчиком</span>
-                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Первый месяц обучения — <span style={{color: "#35b8be"}}>бесплатно</span>. </span>
+                            <span className={s.bannerSubHeader}>Займи место в IT и плати за обучение после трудоустройства. <br/> Минимальная гарантированная зарплата — <span style={{color: "#35b8be"}}>150 тысяч рублей</span>. </span>
                         </div>
-                        <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Поступить</button>
+                        <button onClick={() => setIsEnroll(true)} className={s.bannerBtn}>Начать обучение</button>
                     </div>
                     {getHomepageBanner()}
                 </div>
                 <div className={s.bodyBlock} style={{ background: "#def7fe" }}>
                     <p className={s.bodyTitle}>Обучение проходит дистанционно и нацелено на результат!</p>
                     <p className={s.bodySubTitle}>Наши с тобой цели совпадают – мы получим оплату за обучение только
-                        после твоего трудоустройства. Минимальная гарантированная зарплата -
-                        <span  style={{color: "#35b8be", fontWeight: 700}}> 150 тысяч рублей</span>.</p>
+                        после твоего трудоустройства.</p>
                     <div className={s.aboutProductItems}>
                         {aboutProductItems.map(item => (
                             <div className={s.aboutProductItem}>
@@ -250,9 +249,7 @@ const HomepageLayout = ({ setIsEnroll }) => {
                         <div className={s.bottomBannerInfo}>
                             <div className={s.bottomBannerTextBlock}>
                                 <p className={s.bottomBannerTitle}>Оставь заявку для поступления</p>
-                                <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате или ты не
-                                    знаешь,
-                                    что выбрать, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
+                                <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате, оплате или условиях, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
                                     вопросы.</p>
                             </div>
                             <EnrollModalChild onClose={() => {}}/>
