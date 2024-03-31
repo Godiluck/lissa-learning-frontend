@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from './style.module.scss'
 import HomePageBannerIconDesktop from '../../images/HomePageBannerIcons/HomePageBannerIconDesktop.png';
 import FAQItem from "./components/FAQItem/FAQItem";
 import HomepageBottomBannerIcon from "../../svgs/HomepageBottomBannerIcon";
-import Modal from "../Modal/Modal";
 import EnrollModalChild from "./components/EnrollModalChild/EnrollModalChild";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import {aboutProductItems, FAQItems, SCREENS, studentReviews, whatYourGetItems} from "../../utils/consts";
@@ -13,20 +12,11 @@ import ArrowDown from "../../svgs/ArrowDown";
 import ReviewModal from "./components/ReviewModal/ReviewModal";
 import {IReviewItem} from "../../models/common";
 
-const HomepageLayout = () => {
-    const [isEnroll, setIsEnroll] = useState<boolean>(false)
+const HomepageLayout = ({ setIsEnroll }) => {
     const [review, setReview] = useState<IReviewItem | null>(null)
 
     const isTablet = useMediaQuery(SCREENS.tablet)
     const isMobileMiddle = useMediaQuery(SCREENS.mobile)
-
-    useEffect(() => {
-        if (isEnroll) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "initial"
-        }
-    }, [isEnroll])
 
     const getBottomBannerSize = () => {
         if (isTablet) {
@@ -79,8 +69,6 @@ const HomepageLayout = () => {
 
     return (
         <>
-            <Modal isModal={isEnroll} child={<EnrollModalChild onClose={() => setIsEnroll(false)}/>}
-                   onClose={() => setIsEnroll(false)}/>
             <ReviewModal onClose={() => setReview(null)} isModal={review !== null} review={review}/>
             <div className={s.wrapper}>
                 <div className={s.topBanner}>
@@ -110,7 +98,7 @@ const HomepageLayout = () => {
                         ))}
                     </div>
                 </div>
-                <div className={s.bodyBlock}>
+                <div className={s.bodyBlock} id="advantages">
                     <p className={s.bodyTitle}>
                         что вы получите от нас:
                     </p>
@@ -227,7 +215,7 @@ const HomepageLayout = () => {
                         </div>
                     </div>
                 </div>
-                <div className={s.bodyBlock} style={{ background: "#def7fe" }}>
+                <div className={s.bodyBlock} style={{ background: "#def7fe" }} id="reviews">
                     <p className={s.bodyTitle}>Отзывы</p>
                     <div className={s.studentReviews}>
                         {studentReviews.map((item, index) => (
@@ -256,7 +244,7 @@ const HomepageLayout = () => {
                         ))}
                     </div>
                 </div>
-                <div className={s.bodyBlock}>
+                <div className={s.bodyBlock} id="contacts">
                     <div className={s.bottomBanner}>
                         <div className={s.bottomBannerInfo}>
                             <div className={s.bottomBannerTextBlock}>
@@ -264,7 +252,7 @@ const HomepageLayout = () => {
                                 <p className={s.bottomBannerSubTitle}>Если у тебя есть вопросы о формате, оплате или условиях, оставь свой контакт — мы свяжемся с тобой, чтобы ответить на все
                                     вопросы.</p>
                             </div>
-                            <button onClick={() => setIsEnroll(true)} className={s.bottomBannerBtn}>Оставить заявку</button>
+                            <EnrollModalChild onClose={() => {}}/>
                         </div>
                         {!isMobileMiddle &&
                             <div className={s.bottomBannerIcon}><HomepageBottomBannerIcon size={getBottomBannerSize()}/>
