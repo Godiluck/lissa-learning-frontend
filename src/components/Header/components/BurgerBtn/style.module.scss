@@ -1,8 +1,8 @@
 @import "../../../../styles/colors";
 
 .burgerBtn {
-  width: 60px;
-  height: 45px;
+  width: 45px;
+  height: 29px;
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
@@ -13,7 +13,7 @@
   span {
     display: block;
     position: absolute;
-    height: 9px;
+    height: 5px;
     width: 100%;
     background: $color-app-cyan;
     border-radius: 9px;
@@ -27,18 +27,19 @@
     }
 
     &:nth-child(2), &:nth-child(3) {
-      top: 18px;
+      top: 12px;
     }
 
     &:nth-child(4) {
-      top: 36px;
+      top: 24px;
     }
   }
 
   &.isOpen {
     span {
       &:nth-child(1) {
-        top: 18px;
+        top: 14px;
+        transform: translateY(-50%);
         width: 0;
         left: 50%;
       }
@@ -49,7 +50,8 @@
         transform: rotate(-45deg);
       }
       &:nth-child(4) {
-        top: 18px;
+        top: 14px;
+        transform: translateY(-50%);
         width: 0;
         left: 50%;
       }

@@ -24,6 +24,7 @@
   @include mobile() {
     padding: 0 15px;
     flex-direction: row-reverse;
+    height: 55px;
   }
 }
 
@@ -35,4 +36,7 @@
   column-gap: 15px;
   text-decoration: none;
   width: 220px;
+  @include mobile() {
+    width: 180px;
+  }
 }
