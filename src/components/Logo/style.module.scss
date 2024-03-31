@@ -16,6 +16,9 @@
       font-family: 'Nokora', sans-serif;
       font-weight: 700;
       font-size: 25px;
+      @include mobile() {
+        font-size: 20px;
+      }
     }
   }
 
@@ -29,6 +32,10 @@
       color: $color-app-white;
       font-weight: 400;
       font-size: 20px;
+      @include mobile() {
+        line-height: 15px;
+        font-size: 15px;
+      }
     }
   }
 

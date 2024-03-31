@@ -38,7 +38,7 @@ export const Header = ({ setIsEnroll }) => {
             <div className={s.wrapper}>
                 {isMobile && <BurgerBtn isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />}
                 <Link to='/' className={s.logoWrapper}>
-                    <LogoIcon size={60}/>
+                    <LogoIcon size={isMobile ? 50 : 60}/>
                     <LogoText />
                 </Link>
                 {isMobile

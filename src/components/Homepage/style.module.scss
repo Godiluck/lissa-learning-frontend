@@ -34,130 +34,141 @@ a {
   @include mobile() {
     padding: 0;
   }
+
+  .bannerInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    @include tablet() {
+      padding: 50px 30px 30px 30px;
+      max-width: none;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    @include mobile() {
+      padding: 50px 30px 60px 30px;
+    }
+    @include mobileMiddle() {
+      padding: 50px 30px 90px 30px;
+    }
+
+    .bannerTextBlock {
+      display: flex;
+      flex-direction: column;
+      row-gap: 17px;
+      span {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      @include tablet() {
+        width: 100%;
+      }
+
+      .bannerHeader {
+        font-size: 36px;
+        font-weight: 700;
+        @include tablet() {
+          font-size: 32px;
+        }
+        @include mobileMiddle() {
+          font-size: 30px;
+        }
+      }
+
+      .bannerSubHeader {
+        font-size: 24px;
+        color: $color-app-blue;
+        @include tablet() {
+          font-size: 22px;
+          max-width: calc(100% - 408px);
+        }
+        @include mobile() {
+          max-width: none;
+        }
+        @include mobileMiddle() {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .bannerBtn {
+      cursor: pointer;
+      align-self: baseline;
+      margin-top: 51px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 22px;
+      text-transform: uppercase;
+      width: 70%;
+      padding: 23px 0;
+      letter-spacing: 2.64px;
+      border-radius: 20px;
+      border: 2px solid $color-app-mark;
+      background: $color-app-mark;
+      color: $color-app-white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+      transition: all .3s ease-out;
+      &:hover {
+        box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+        transform: scale(1.05);
+      }
+      @include tablet() {
+        max-width: 350px;
+        font-size: 22px;
+      }
+      @include mobileMiddle() {
+        font-size: 20px;
+        border-radius: 8px;
+        margin-top: 15px;
+        max-width: 240px;
+        width: 100%;
+        padding: 11px 0;
+      }
+      @include mobileSmall() {
+        max-width: 170px;
+      }
+    }
+  }
+
+  .bannerIcon {
+    min-width: 468px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @include tablet() {
+      max-width: 300px;
+      min-width: 250px;
+    }
+  }
+
+  .bannerIconTablet {
+    position: absolute;
+    bottom: -4px;
+    right: 20px;
+  }
+
+  .bannerIconMobile {
+    position: absolute;
+    bottom: -4px;
+    right: 20px;
+    svg {
+      max-width: 200px;
+    }
+  }
 }
 
-.bannerInfo {
-  display: flex;
-  flex-direction: column;
-  max-width: 60%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  @include tablet() {
-    padding: 50px 30px 30px 30px;
-    max-width: none;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  @include mobile() {
-    padding: 50px 30px 60px 30px;
-  }
-  @include mobileMiddle() {
-    padding: 50px 30px 90px 30px;
-  }
-}
 
-.bannerTextBlock {
-  display: flex;
-  flex-direction: column;
-  row-gap: 17px;
-  span {
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  @include tablet() {
-    width: 100%;
-  }
-}
 
-.bannerHeader {
-  font-size: 48px;
-  @include tablet() {
-    font-size: 40px;
-  }
-   @include mobile() {
-    font-size: 30px;
-  }
-}
 
-.bannerSubHeader {
-  font-size: 32px;
-  color: $color-app-blue;
-  @include tablet() {
-    font-size: 28px;
-    max-width: calc(100% - 408px);
-  }
-  @include mobile() {
-    font-size: 25px;
-    max-width: none;
-  }
-  @include mobileSmall() {
-    font-size: 13px;
-  }
-}
 
-.bannerIcon {
-  min-width: 468px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  @include tablet() {
-    max-width: 300px;
-    min-width: 250px;
-  }
-}
 
-.bannerIconTablet {
-  position: absolute;
-  bottom: -4px;
-  right: 20px;
-}
 
-.bannerIconMobile {
-  position: absolute;
-  bottom: -4px;
-  right: 20px;
-  svg {
-    max-width: 200px;
-  }
-}
 
-.bannerBtn {
-  cursor: pointer;
-  align-self: baseline;
-  margin-top: 51px;
-  font-size: 33px;
-  font-weight: 700;
-  line-height: 22px;
-  text-transform: uppercase;
-  width: 70%;
-  padding: 23px 0;
-  letter-spacing: 2.64px;
-  border-radius: 20px;
-  border: 2px solid $color-app-mark;
-  background: $color-app-mark;
-  color: $color-app-white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-  transition: all .3s ease-out;
-  &:hover {
-    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
-  }
-  @include tablet() {
-    max-width: 350px;
-  }
-  @include mobile() {
-    border-radius: 8px;
-    margin-top: 15px;
-    max-width: 240px;
-    font-size: 14px;
-    width: 100%;
-    padding: 11px 0;
-  }
-  @include mobileSmall() {
-    max-width: 170px;
-  }
-}
+
+
 
 .bodyBlock {
   padding: 80px 120px;
@@ -175,7 +186,7 @@ a {
 }
 
 .bodyTitle {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
   text-align: start;
@@ -185,26 +196,25 @@ a {
   border-width: 0 0 0 5px;
   padding: 0 0 0 20px;
   @include tablet() {
-    font-size: 30px;
+    font-size: 32px;
   }
-  @include mobile() {
-    font-size: 22px;
+  @include mobileMiddle() {
+    font-size: 30px;
   }
 }
 
 .bodySubTitle {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
   text-transform: uppercase;
   text-align: start;
   padding-left: 7px;
-  letter-spacing: 2.86px;
   color: $color-app-blue;
   @include tablet() {
-    font-size: 18px;
+    font-size: 22px;
   }
-  @include mobile() {
-    font-size: 13px;
+  @include mobileMiddle() {
+    font-size: 20px;
   }
 }
 
@@ -238,34 +248,37 @@ a {
   text-align: center;
   flex-grow: 1;
   flex-basis: 0;
-
   &:hover {
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
   }
-
   img {
     max-width: 80px;
   }
-
+  p {
+    font-size: 20px;
+  }
   @include tablet() {
     font-size: 18px;
     padding: 10px 0;
     min-width: 390px;
     max-width: 450px;
     p {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
-
   @include mobile() {
     row-gap: 0;
+    padding: 20px 0;
     min-width: 300px;
+    max-width: 350px;
 
     img {
       max-width: 48px;
     }
+  }
+  @include mobileMiddle() {
     p {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 }
@@ -293,7 +306,6 @@ a {
   &:hover {
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
   }
-
   @include tablet() {
     padding: 20px;
     row-gap: 20px;
@@ -327,15 +339,15 @@ a {
 }
 
 .whatYouGetTitle {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 45px;
   letter-spacing: .32px;
   text-transform: uppercase;
   @include tablet() {
-    font-size: 26px;
+    font-size: 22px;
   }
-  @include mobile() {
+  @include mobileMiddle() {
     font-size: 20px;
     line-height: 20px;
   }
@@ -343,7 +355,7 @@ a {
 
 .whatYouGetText {
   color: $color-app-blue;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 33px;
   letter-spacing: 0.55px;
@@ -351,7 +363,7 @@ a {
   @include tablet() {
     font-size: 18px;
   }
-  @include mobile() {
+  @include mobileMiddle() {
     font-size: 16px;
     line-height: 20px;
   }
@@ -423,19 +435,27 @@ a {
 }
 
 .studentName {
-  font-size: 16px;
+  font-size: 24px;
   font-style: normal;
   text-align: center;
   font-weight: 600;
   line-height: 20px;
+
+  @include tablet() {
+    font-size: 22px;
+  }
+  @include mobileMiddle() {
+    font-size: 20px;
+  }
 }
 
 .company {
   color: $color-app-mark;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.14px;
   line-height: 20px;
+  text-align: center;
 }
 
 .studentInfoTablet {
@@ -460,12 +480,16 @@ a {
   text-overflow: ellipsis;
   max-width: 100%;
   max-height: 240px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 30px;
   letter-spacing: 0.16px;
   color: $color-app-blue;
   text-align: justify;
+
+  @include mobileMiddle() {
+    font-size: 16px;
+  }
 }
 
 .readMore {
@@ -485,7 +509,7 @@ a {
   padding: 54px 43px;
   display: flex;
   flex-direction: row;
-  column-gap: 100px;
+  column-gap: 50px;
   width: 80%;
   margin: 0 auto;
   background: $color-app-cyan;
@@ -503,7 +527,6 @@ a {
     width: 100%;
     padding: 20px 10px;
   }
-
 }
 
 .bottomBannerInfo {
@@ -525,24 +548,32 @@ a {
 }
 
 .bottomBannerTitle {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 30px;
   letter-spacing: 0.32px;
   text-align: start;
-  @include mobile() {
-    font-size: 22px;
+
+  @include tablet() {
+    font-size: 32px;
+  }
+  @include mobileMiddle() {
+    font-size: 30px;
   }
 }
 
 .bottomBannerSubTitle {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 0.2px;
   text-align: start;
-  @include mobile() {
-    font-size: 16px;
+  color: $color-app-blue;
+  @include tablet() {
+    font-size: 22px;
+  }
+  @include mobileMiddle() {
+    font-size: 20px;
   }
 }
 
@@ -660,14 +691,17 @@ a {
     border-radius: 50%;
   }
   p {
-    font-size: 28px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: 70px;
     letter-spacing: 0.24px;
     text-transform: uppercase;
-    @include mobile() {
-      font-size: 24px;
+    @include tablet() {
+      font-size: 22px;
+    }
+    @include mobileMiddle() {
+      font-size: 20px;
       line-height: 24px;
     }
   }
@@ -687,7 +721,7 @@ a {
     margin-top: 20px;
   }
   li {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 14px;
     font-weight: 500;
     line-height: 18px;
@@ -700,8 +734,12 @@ a {
       color: $color-app-mark;
     }
 
-    @include mobile() {
+    @include tablet() {
       font-size: 18px;
+    }
+    @include mobileMiddle() {
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 }

@@ -35,7 +35,7 @@ const Modal: React.FC<IProps> = ({child, onClose, isModal}) => {
                     <LogoIcon size={isMobileMiddle ? 60 : 110} circuitColor="#35b8be"/>
                 </div>
                 <div className={s.modalInner}>
-                    <LogoText mainTextColor="#35b8be" secondTextColor="#373737" />
+                    {!isMobileMiddle && <LogoText mainTextColor="#35b8be" secondTextColor="#373737" />}
                     <div className={s.child}>
                         {child}
                     </div>
